@@ -1,0 +1,747 @@
+<h1>DaVinci Resolve Scripting Documentation</h1>
+<p>Updated as of 08 March 2019</p>
+<hr />
+<p>In this package, you will find a brief introduction to the Scripting API for DaVinci Resolve Studio. Apart from this README.txt file, this package contains folders containing the basic import modules for scripting access (DaVinciResolve.py) and some representative examples.</p>
+<h1>Overview</h1>
+<p>As with Blackmagic Design Fusion scripts, user scripts written in Lua and Python programming languages are supported. By default, scripts can be invoked from the Console window in the Fusion page, or via command line. This permission can be changed in Resolve Preferences, to be only from Console, or to be invoked from the local network. Please be aware of the security implications when allowing scripting access from outside of the Resolve application.</p>
+<h1>Using a script</h1>
+<p>DaVinci Resolve needs to be running for a script to be invoked.</p>
+<p>For a Resolve script to be executed from an external folder, the script needs to know of the API location.
+You may need to set the these environment variables to allow for your Python installation to pick up the appropriate dependencies as shown below:</p>
+<pre><code>Mac OS X:
+RESOLVE_SCRIPT_API=&quot;/Library/Application Support/Blackmagic Design/DaVinci Resolve/Developer/Scripting/&quot;
+RESOLVE_SCRIPT_LIB=&quot;/Applications/DaVinci Resolve/DaVinci Resolve.app/Contents/Libraries/Fusion/fusionscript.so&quot;
+PYTHONPATH=&quot;$PYTHONPATH:$RESOLVE_SCRIPT_API/Modules/&quot;
+
+Windows:
+RESOLVE_SCRIPT_API=&quot;%PROGRAMDATA%\\Blackmagic Design\\DaVinci Resolve\\Support\\Developer\\Scripting\\&quot;
+RESOLVE_SCRIPT_LIB=&quot;C:\\Program Files\\Blackmagic Design\\DaVinci Resolve\\fusionscript.dll&quot;
+PYTHONPATH=&quot;%PYTHONPATH%;%RESOLVE_SCRIPT_API%\\Modules\\&quot;
+
+Linux:
+RESOLVE_SCRIPT_API=&quot;/opt/resolve/Developer/Scripting/&quot;
+RESOLVE_SCRIPT_LIB=&quot;/opt/resolve/libs/Fusion/fusionscript.so&quot;
+PYTHONPATH=&quot;$PYTHONPATH:$RESOLVE_SCRIPT_API/Modules/&quot;
+(Note: For standard ISO Linux installations, the path above may need to be modified to refer to /home/resolve instead of /opt/resolve)
+</code></pre>
+<p>As with Fusion scripts, Resolve scripts can also be invoked via the menu and the Console.</p>
+<p>On startup, DaVinci Resolve scans the Utility Scripts directory and enumerates the scripts found in the Script application menu. Placing your script in this folder and invoking it from this menu is the easiest way to use scripts. The Utility Scripts folder is located in:</p>
+<pre><code>Mac OS X:   /Library/Application Support/Blackmagic Design/DaVinci Resolve/Fusion/Scripts/Comp/
+Windows:    %APPDATA%\Blackmagic Design\DaVinci Resolve\Fusion\Scripts\Comp\
+Linux:      /opt/resolve/Fusion/Scripts/Comp/   (or /home/resolve/Fusion/Scripts/Comp/ depending on installation)
+</code></pre>
+<p>The interactive Console window allows for an easy way to execute simple scripting commands, to query or modify properties, and to test scripts. The console accepts commands in Python 2.7, Python 3.6 and Lua and evaluates and executes them immediately. For more information on how to use the Console, please refer to the DaVinci Resolve User Manual.</p>
+<p>This example Python script creates a simple project:</p>
+<pre><code>#!/usr/bin/env python
+import DaVinciResolveScript as dvr_script
+resolve = dvr_script.scriptapp(&quot;Resolve&quot;)
+fusion = resolve.Fusion()
+projectManager = resolve.GetProjectManager()
+projectManager.CreateProject(&quot;Hello World&quot;)
+</code></pre>
+<p>The resolve object is the fundamental starting point for scripting via Resolve. As a native object, it can be inspected for further scriptable properties - using table iteration and <code>getmetatable</code> in Lua and dir, help etc in Python (among other methods). A notable scriptable object above is fusion - it allows access to all existing Fusion scripting functionality.</p>
+<h2>Running DaVinci Resolve in headless mode</h2>
+<p>DaVinci Resolve can be launched in a headless mode without the user interface using the -nogui command line option. When DaVinci Resolve is launched using this option, the user interface is disabled. However, the various scripting APIs will continue to work as expected.</p>
+<h2>Basic Resolve API</h2>
+<p>Some commonly used API functions are described below (*). As with the resolve object, each object is inspectable for properties and functions.</p>
+<p><strong>Resolve</strong></p>
+<table>
+<thead>
+<tr>
+<th>Method</th>
+<th>Return Type</th>
+<th>Comment</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code> Fusion()                                       </code></td>
+<td>Fusion</td>
+<td>Returns the Fusion object. Starting point for Fusion scripts.</td>
+</tr>
+<tr>
+<td><code> GetMediaStorage()                              </code></td>
+<td>MediaStorage</td>
+<td>Returns media storage object to query and act on media locations.</td>
+</tr>
+<tr>
+<td><code> GetProjectManager()                            </code></td>
+<td>ProjectManager</td>
+<td>Returns project manager object for currently open database.</td>
+</tr>
+<tr>
+<td><code> OpenPage(pageName)                             </code></td>
+<td>None</td>
+<td>Switches to indicated page in DaVinci Resolve. Input can be one of (&quot;media&quot;, &quot;edit&quot;, &quot;fusion&quot;, &quot;color&quot;, &quot;fairlight&quot;, &quot;deliver&quot;).</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<p><strong>ProjectManager</strong></p>
+<table>
+<thead>
+<tr>
+<th>Method</th>
+<th>Return Type</th>
+<th>Comment</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code> CreateProject(projectName)                     </code></td>
+<td>Project</td>
+<td>Creates and returns a project if projectName (text) is unique, and None if it is not.</td>
+</tr>
+<tr>
+<td><code> DeleteProject(projectName)                     </code></td>
+<td>Bool</td>
+<td>Delete project in the current folder if not currently loaded</td>
+</tr>
+<tr>
+<td><code> LoadProject(projectName)                       </code></td>
+<td>Project</td>
+<td>Loads and returns the project with name = projectName (text) if there is a match found, and None if there is no matching Project.</td>
+</tr>
+<tr>
+<td><code> GetCurrentProject()                            </code></td>
+<td>Project</td>
+<td>Returns the currently loaded Resolve project.</td>
+</tr>
+<tr>
+<td><code> SaveProject()                                  </code></td>
+<td>Bool</td>
+<td>Saves the currently loaded project with its own name. Returns True if successful.</td>
+</tr>
+<tr>
+<td><code> CreateFolder(folderName)                       </code></td>
+<td>Bool</td>
+<td>Creates a folder if folderName (text) is unique.</td>
+</tr>
+<tr>
+<td><code> GetProjectsInCurrentFolder()                   </code></td>
+<td>[project names...]</td>
+<td>Returns an array of project names in current folder.</td>
+</tr>
+<tr>
+<td><code> GetFoldersInCurrentFolder()                    </code></td>
+<td>[folder names...]</td>
+<td>Returns an array of folder names in current folder.</td>
+</tr>
+<tr>
+<td><code> GotoRootFolder()                               </code></td>
+<td>Bool</td>
+<td>Opens root folder in database.</td>
+</tr>
+<tr>
+<td><code> GotoParentFolder()                             </code></td>
+<td>Bool</td>
+<td>Opens parent folder of current folder in database if current folder has parent.</td>
+</tr>
+<tr>
+<td><code> OpenFolder(folderName)                         </code></td>
+<td>Bool</td>
+<td>Opens folder under given name.</td>
+</tr>
+<tr>
+<td><code> ImportProject(filePath)                        </code></td>
+<td>Bool</td>
+<td>Imports a project under given file path. Returns true in case of success.</td>
+</tr>
+<tr>
+<td><code> ExportProject(projectName, filePath)           </code></td>
+<td>Bool</td>
+<td>Exports a project based on given name into provided file path. Returns true in case of success.</td>
+</tr>
+<tr>
+<td><code> RestoreProject(filePath)                       </code></td>
+<td>Bool</td>
+<td>Restores a project under given backup file path. Returns true in case of success.</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<p><strong>Project</strong></p>
+<table>
+<thead>
+<tr>
+<th>Method</th>
+<th>Return Type</th>
+<th>Comment</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code> GetMediaPool()                                 </code></td>
+<td>MediaPool</td>
+<td>Returns the Media Pool object.</td>
+</tr>
+<tr>
+<td><code> GetTimelineCount()                             </code></td>
+<td>int</td>
+<td>Returns the number of timelines currently present in the project.</td>
+</tr>
+<tr>
+<td><code> GetTimelineByIndex(idx)                        </code></td>
+<td>Timeline</td>
+<td>Returns timeline at the given index, 1 &lt;= idx &lt;= project.GetTimelineCount()</td>
+</tr>
+<tr>
+<td><code> GetCurrentTimeline()                           </code></td>
+<td>Timeline</td>
+<td>Returns the currently loaded timeline.</td>
+</tr>
+<tr>
+<td><code> SetCurrentTimeline(timeline)                   </code></td>
+<td>Bool</td>
+<td>Sets given timeline as current timeline for the project. Returns True if successful.</td>
+</tr>
+<tr>
+<td><code> GetName()                                      </code></td>
+<td>string</td>
+<td>Returns project name.</td>
+</tr>
+<tr>
+<td><code> SetName(projectName)                           </code></td>
+<td>Bool</td>
+<td>Sets project name if given projectname (text) is unique.</td>
+</tr>
+<tr>
+<td><code> GetPresets()                                   </code></td>
+<td>[presets...]</td>
+<td>Returns a table of presets and their information.</td>
+</tr>
+<tr>
+<td><code> SetPreset(presetName)                          </code></td>
+<td>Bool</td>
+<td>Sets preset by given presetName (string) into project.</td>
+</tr>
+<tr>
+<td><code> GetRenderJobs()                                </code></td>
+<td>[render jobs...]</td>
+<td>Returns a table of render jobs and their information.</td>
+</tr>
+<tr>
+<td><code> GetRenderPresets()                             </code></td>
+<td>[presets...]</td>
+<td>Returns a table of render presets and their information.</td>
+</tr>
+<tr>
+<td><code> StartRendering(index1, index2, ...)            </code></td>
+<td>Bool</td>
+<td>Starts rendering for given render jobs based on their indices. If no parameter is given rendering would start for all render jobs.</td>
+</tr>
+<tr>
+<td><code> StartRendering([idxs...])                      </code></td>
+<td>Bool</td>
+<td>Starts rendering for given render jobs based on their indices. If no parameter is given rendering would start for all render jobs.</td>
+</tr>
+<tr>
+<td><code> StopRendering()                                </code></td>
+<td>None</td>
+<td>Stops rendering for all render jobs.</td>
+</tr>
+<tr>
+<td><code> IsRenderingInProgress()                        </code></td>
+<td>Bool</td>
+<td>Returns true is rendering is in progress.</td>
+</tr>
+<tr>
+<td><code> AddRenderJob()                                 </code></td>
+<td>Bool</td>
+<td>Adds render job to render queue.</td>
+</tr>
+<tr>
+<td><code> DeleteRenderJobByIndex(idx)                    </code></td>
+<td>Bool</td>
+<td>Deletes render job based on given job index (int).</td>
+</tr>
+<tr>
+<td><code> DeleteAllRenderJobs()                          </code></td>
+<td>Bool</td>
+<td>Deletes all render jobs.</td>
+</tr>
+<tr>
+<td><code> LoadRenderPreset(presetName)                   </code></td>
+<td>Bool</td>
+<td>Sets a preset as current preset for rendering if presetName (text) exists.</td>
+</tr>
+<tr>
+<td><code> SaveAsNewRenderPreset(presetName)              </code></td>
+<td>Bool</td>
+<td>Creates a new render preset by given name if presetName(text) is unique.</td>
+</tr>
+<tr>
+<td><code> SetRenderSettings([settings map])              </code></td>
+<td>Bool</td>
+<td>Sets given settings for rendering. Settings map is a map, keys of map are: &quot;SelectAllFrames&quot;, &quot;MarkIn&quot;, &quot;MarkOut&quot;, &quot;TargetDir&quot;, &quot;CustomName&quot;.</td>
+</tr>
+<tr>
+<td><code> GetRenderJobStatus(idx)                        </code></td>
+<td>[status info]</td>
+<td>Returns job status and completion rendering percentage of the job by given job index (int).</td>
+</tr>
+<tr>
+<td><code> GetSetting(settingName)                        </code></td>
+<td>string</td>
+<td>Returns setting value by given settingName (string) if the setting exist. With empty settingName the function returns a full list of settings.</td>
+</tr>
+<tr>
+<td><code> SetSetting(settingName, settingValue)          </code></td>
+<td>Bool</td>
+<td>Sets project setting base on given name (string) and value (string).</td>
+</tr>
+<tr>
+<td><code> GetRenderFormats()                             </code></td>
+<td>[render formats...]</td>
+<td>Returns a list of available render formats.</td>
+</tr>
+<tr>
+<td><code> GetRenderCodecs(renderFormat)                  </code></td>
+<td>[render codecs...]</td>
+<td>Returns a list of available codecs for given render format (string).</td>
+</tr>
+<tr>
+<td><code> GetCurrentRenderFormatAndCodec()               </code></td>
+<td>[format, codec]</td>
+<td>Returns currently selected render format and render codec.</td>
+</tr>
+<tr>
+<td><code> SetCurrentRenderFormatAndCodec(format, codec)  </code></td>
+<td>Bool</td>
+<td>Sets given render format (string) and render codec (string) as options for rendering.</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<p><strong>MediaStorage</strong></p>
+<table>
+<thead>
+<tr>
+<th>Method</th>
+<th>Return Type</th>
+<th>Comment</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code> GetMountedVolumes()                            </code></td>
+<td>[paths...]</td>
+<td>Returns an array of folder paths corresponding to mounted volumes displayed in Resolve’s Media Storage.</td>
+</tr>
+<tr>
+<td><code> GetSubFolders(folderPath)                      </code></td>
+<td>[paths...]</td>
+<td>Returns an array of folder paths in the given absolute folder path.</td>
+</tr>
+<tr>
+<td><code> GetFiles(folderPath)                           </code></td>
+<td>[paths...]</td>
+<td>Returns an array of media and file listings in the given absolute folder path. Note that media listings may be logically consolidated entries.</td>
+</tr>
+<tr>
+<td><code> RevealInStorage(path)                          </code></td>
+<td>None</td>
+<td>Expands and displays a given file/folder path in Resolve’s Media Storage.</td>
+</tr>
+<tr>
+<td><code> AddItemsToMediaPool(item1, item2, ...)         </code></td>
+<td>[clips...]</td>
+<td>Adds specified file/folder paths from Media Store into current Media Pool folder. Input is one or more file/folder paths.</td>
+</tr>
+<tr>
+<td><code> AddItemsToMediaPool([items...])                </code></td>
+<td>[clips...]</td>
+<td>Adds specified file/folder paths from Media Store into current Media Pool folder. Input is an array of file/folder paths.</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<p><strong>MediaPool</strong></p>
+<table>
+<thead>
+<tr>
+<th>Method</th>
+<th>Return Type</th>
+<th>Comment</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code> GetRootFolder()                                </code></td>
+<td>Folder</td>
+<td>Returns the root Folder of Media Pool</td>
+</tr>
+<tr>
+<td><code> AddSubFolder(folder, name)                     </code></td>
+<td>Folder</td>
+<td>Adds a new subfolder under specified Folder object with the given name.</td>
+</tr>
+<tr>
+<td><code> CreateEmptyTimeline(name)                      </code></td>
+<td>Timeline</td>
+<td>Adds a new timeline with given name.</td>
+</tr>
+<tr>
+<td><code> AppendToTimeline(clip1, clip2...)              </code></td>
+<td>Bool</td>
+<td>Appends specified MediaPoolItem objects in the current timeline. Returns True if successful.</td>
+</tr>
+<tr>
+<td><code> AppendToTimeline([clips])                      </code></td>
+<td>Bool</td>
+<td>Appends specified MediaPoolItem objects in the current timeline. Returns True if successful.</td>
+</tr>
+<tr>
+<td><code>  CreateTimelineFromClips(name, clip1, clip2, ...)</code></td>
+<td>Timeline</td>
+<td>Creates a new timeline with specified name, and appends the specified MediaPoolItem objects.</td>
+</tr>
+<tr>
+<td><code> CreateTimelineFromClips(name, [clips])         </code></td>
+<td>Timeline</td>
+<td>Creates a new timeline with specified name, and appends the specified MediaPoolItem objects.</td>
+</tr>
+<tr>
+<td><code> ImportTimelineFromFile(filePath)               </code></td>
+<td>Timeline</td>
+<td>Creates timeline based on parameters within given file.</td>
+</tr>
+<tr>
+<td><code> GetCurrentFolder()                             </code></td>
+<td>Folder</td>
+<td>Returns currently selected Folder.</td>
+</tr>
+<tr>
+<td><code> SetCurrentFolder(Folder)                       </code></td>
+<td>Bool</td>
+<td>Sets current folder by given Folder.</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<p><strong>Folder</strong></p>
+<table>
+<thead>
+<tr>
+<th>Method</th>
+<th>Return Type</th>
+<th>Comment</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code> GetClips()                                     </code></td>
+<td>[clips...]</td>
+<td>Returns a list of clips (items) within the folder.</td>
+</tr>
+<tr>
+<td><code> GetName()                                      </code></td>
+<td>string</td>
+<td>Returns user-defined name of the folder.</td>
+</tr>
+<tr>
+<td><code> GetSubFolders()                                </code></td>
+<td>[folders...]</td>
+<td>Returns a list of subfolders in the folder.</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<p><strong>MediaPoolItem</strong></p>
+<table>
+<thead>
+<tr>
+<th>Method</th>
+<th>Return Type</th>
+<th>Comment</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code> GetMetadata(metadataType)                      </code></td>
+<td>[[types],[values]]</td>
+<td>Returns a value of metadataType. If parameter is not specified returns all set metadata parameters.</td>
+</tr>
+<tr>
+<td><code> SetMetadata(metadataType, metadataValue)       </code></td>
+<td>Bool</td>
+<td>Sets metadata by given type and value. Returns True if successful.</td>
+</tr>
+<tr>
+<td><code> GetMediaId()                                   </code></td>
+<td>string</td>
+<td>Returns a unique ID name related to MediaPoolItem.</td>
+</tr>
+<tr>
+<td><code> AddMarker(frameId, color, name, note, duration)</code></td>
+<td>Bool</td>
+<td>Creates a new marker at given frameId position and with given marker information.</td>
+</tr>
+<tr>
+<td><code> GetMarkers()                                   </code></td>
+<td>[markers...]</td>
+<td>Returns a list of all markers and their information.</td>
+</tr>
+<tr>
+<td><code> AddFlag(color)                                 </code></td>
+<td>Bool</td>
+<td>Adds a flag with given color (text).</td>
+</tr>
+<tr>
+<td><code> GetFlags()                                     </code></td>
+<td>[colors...]</td>
+<td>Returns a list of flag colors assigned to the item.</td>
+</tr>
+<tr>
+<td><code> GetClipColor()                                 </code></td>
+<td>string</td>
+<td>Returns an item color as a string.</td>
+</tr>
+<tr>
+<td><code> GetClipProperty(propertyName)                  </code></td>
+<td>[[types],[values]]</td>
+<td>Returns property value related to the item based on given propertyName (string). if propertyName is empty then it returns a full list of properties.</td>
+</tr>
+<tr>
+<td><code> SetClipProperty(propertyName, propertyValue)   </code></td>
+<td>Bool</td>
+<td>Sets into given propertyName (string) propertyValue (string).</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<p><strong>Timeline</strong></p>
+<table>
+<thead>
+<tr>
+<th>Method</th>
+<th>Return Type</th>
+<th>Comment</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code> GetName()                                      </code></td>
+<td>string</td>
+<td>Returns user-defined name of the timeline.</td>
+</tr>
+<tr>
+<td><code> SetName(timelineName)                          </code></td>
+<td>Bool</td>
+<td>Sets timeline name is timelineName (text) is unique.</td>
+</tr>
+<tr>
+<td><code> GetStartFrame()                                </code></td>
+<td>int</td>
+<td>Returns frame number at the start of timeline.</td>
+</tr>
+<tr>
+<td><code> GetEndFrame()                                  </code></td>
+<td>int</td>
+<td>Returns frame number at the end of timeline.</td>
+</tr>
+<tr>
+<td><code> GetTrackCount(trackType)                       </code></td>
+<td>int</td>
+<td>Returns a number of track based on specified track type (&quot;audio&quot;, &quot;video&quot; or &quot;subtitle&quot;).</td>
+</tr>
+<tr>
+<td><code> GetItemsInTrack(trackType, index)              </code></td>
+<td>[items...]</td>
+<td>Returns an array of Timeline items on the video or audio track (based on trackType) at specified index. 1 &lt;= index &lt;= GetTrackCount(trackType).</td>
+</tr>
+<tr>
+<td><code> AddMarker(frameId, color, name, note, duration)</code></td>
+<td>Bool</td>
+<td>Creates a new marker at given frameId position and with given marker information.</td>
+</tr>
+<tr>
+<td><code> GetMarkers()                                   </code></td>
+<td>[markers...]</td>
+<td>Returns a list of all markers and their information.</td>
+</tr>
+<tr>
+<td><code>  ApplyGradeFromDRX(path, gradeMode, item1, item2, ...)</code></td>
+<td>Bool</td>
+<td>Loads a still from given file path (string) and applies grade to Timeline Items with gradeMode (int): 0 - &quot;No keyframes&quot;, 1 - &quot;Source Timecode aligned&quot;, 2 - &quot;Start Frames aligned&quot;.</td>
+</tr>
+<tr>
+<td><code> ApplyGradeFromDRX(path, gradeMode, [items])    </code></td>
+<td>Bool</td>
+<td>Loads a still from given file path (string) and applies grade to Timeline Items with gradeMode (int): 0 - &quot;No keyframes&quot;, 1 - &quot;Source Timecode aligned&quot;, 2 - &quot;Start Frames aligned&quot;.</td>
+</tr>
+<tr>
+<td><code> GetCurrentTimecode()                           </code></td>
+<td>string</td>
+<td>Returns a string representing a timecode for current position of the timeline, while on Cut, Edit, Color and Deliver page.</td>
+</tr>
+<tr>
+<td><code> GetCurrentVideoItem()                          </code></td>
+<td>item</td>
+<td>Returns current video timeline item.</td>
+</tr>
+<tr>
+<td><code> GetCurrentClipThumbnailImage()                 </code></td>
+<td>[width, height, format, data]</td>
+<td>Returns raw thumbnail image data (This image data is encoded in base 64 format and the image format is RGB 8 bit) for the current media in the Color Page in the format of dictionary (in Python) and table (in Lua). Information return are &quot;width&quot;, &quot;height&quot;, &quot;format&quot; and &quot;data&quot;. Example is provided in 6_get_current_media_thumbnail.py in Example folder.</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<p><strong>TimelineItem</strong></p>
+<table>
+<thead>
+<tr>
+<th>Method</th>
+<th>Return Type</th>
+<th>Comment</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code> GetName()                                      </code></td>
+<td>string</td>
+<td>Returns a name of the item.</td>
+</tr>
+<tr>
+<td><code> GetDuration()                                  </code></td>
+<td>int</td>
+<td>Returns a duration of item.</td>
+</tr>
+<tr>
+<td><code> GetEnd()                                       </code></td>
+<td>int</td>
+<td>Returns a position of end frame.</td>
+</tr>
+<tr>
+<td><code> GetFusionCompCount()                           </code></td>
+<td>int</td>
+<td>Returns the number of Fusion compositions associated with the timeline item.</td>
+</tr>
+<tr>
+<td><code> GetFusionCompByIndex(compIndex)                </code></td>
+<td>fusionComp</td>
+<td>Returns Fusion composition object based on given index. 1 &lt;= compIndex &lt;= timelineItem.GetFusionCompCount()</td>
+</tr>
+<tr>
+<td><code> GetFusionCompNames()                           </code></td>
+<td>[names...]</td>
+<td>Returns a list of Fusion composition names associated with the timeline item.</td>
+</tr>
+<tr>
+<td><code> GetFusionCompByName(compName)                  </code></td>
+<td>fusionComp</td>
+<td>Returns Fusion composition object based on given name.</td>
+</tr>
+<tr>
+<td><code> GetLeftOffset()                                </code></td>
+<td>int</td>
+<td>Returns a maximum extension by frame for clip from left side.</td>
+</tr>
+<tr>
+<td><code> GetRightOffset()                               </code></td>
+<td>int</td>
+<td>Returns a maximum extension by frame for clip from right side.</td>
+</tr>
+<tr>
+<td><code> GetStart()                                     </code></td>
+<td>int</td>
+<td>Returns a position of first frame.</td>
+</tr>
+<tr>
+<td><code> AddMarker(frameId, color, name, note, duration)</code></td>
+<td>Bool</td>
+<td>Creates a new marker at given frameId position and with given marker information.</td>
+</tr>
+<tr>
+<td><code> GetMarkers()                                   </code></td>
+<td>[markers...]</td>
+<td>Returns a list of all markers and their information.</td>
+</tr>
+<tr>
+<td><code> GetFlags()                                     </code></td>
+<td>[colors...]</td>
+<td>Returns a list of flag colors assigned to the item.</td>
+</tr>
+<tr>
+<td><code> GetClipColor()                                 </code></td>
+<td>string</td>
+<td>Returns an item color as a string.</td>
+</tr>
+<tr>
+<td><code> AddFusionComp()                                </code></td>
+<td>fusionComp</td>
+<td>Adds a new Fusion composition associated with the timeline item.</td>
+</tr>
+<tr>
+<td><code> ImportFusionComp(path)                         </code></td>
+<td>fusionComp</td>
+<td>Imports Fusion composition from given file path by creating and adding a new composition for the item.</td>
+</tr>
+<tr>
+<td><code> ExportFusionComp(path, compIndex)              </code></td>
+<td>Bool</td>
+<td>Exports Fusion composition based on given index into provided file name path.</td>
+</tr>
+<tr>
+<td><code> DeleteFusionCompByName(compName)               </code></td>
+<td>Bool</td>
+<td>Deletes Fusion composition by provided name.</td>
+</tr>
+<tr>
+<td><code> LoadFusionCompByName(compName)                 </code></td>
+<td>fusionComp</td>
+<td>Loads Fusion composition by provided name and sets it as active composition.</td>
+</tr>
+<tr>
+<td><code> RenameFusionCompByName(oldName, newName)       </code></td>
+<td>Bool</td>
+<td>Renames Fusion composition by provided name with new given name.</td>
+</tr>
+<tr>
+<td><code> AddVersion(versionName, versionType)           </code></td>
+<td>Bool</td>
+<td>Adds a new Version associated with the timeline item. versionType: 0 - local, 1 - remote.</td>
+</tr>
+<tr>
+<td><code> DeleteVersionByName(versionName, versionType)  </code></td>
+<td>Bool</td>
+<td>Deletes Version by provided name. versionType: 0 - local, 1 - remote.</td>
+</tr>
+<tr>
+<td><code> LoadVersionByName(versionName, versionType)    </code></td>
+<td>Bool</td>
+<td>Loads Version by provided name and sets it as active Version. versionType: 0 - local, 1 - remote.</td>
+</tr>
+<tr>
+<td><code>  RenameVersionByName(oldName, newName, versionType)</code></td>
+<td>Bool</td>
+<td>Renames Version by provided name with new given name. versionType: 0 - local, 1 - remote.</td>
+</tr>
+<tr>
+<td><code> GetMediaPoolItem()                             </code></td>
+<td>MediaPoolItem</td>
+<td>Returns a corresponding to the timeline item media pool item if it exists.</td>
+</tr>
+<tr>
+<td><code> GetVersionNames(versionType)                   </code></td>
+<td>[strings...]</td>
+<td>Returns a list of version names by provided versionType: 0 - local, 1 - remote.</td>
+</tr>
+<tr>
+<td><code> GetStereoConvergenceValues()                   </code></td>
+<td>[offset, value]</td>
+<td>Returns a table of keyframe offsets and respective convergence values</td>
+</tr>
+<tr>
+<td><code> GetStereoLeftFloatingWindowParams()            </code></td>
+<td>[offset, value]</td>
+<td>For the LEFT eye -&gt; returns a table of keyframe offsets and respective floating window params. Value at particular offset includes the left, right, top and bottom floating window values</td>
+</tr>
+<tr>
+<td><code> GetStereoRightFloatingWindowParams()           </code></td>
+<td>[offset, value]</td>
+<td>For the RIGHT eye -&gt; returns a table of keyframe offsets and respective floating window params. Value at particular offset includes the left, right, top and bottom floating window values</td>
+</tr>
+</tbody>
+</table>
