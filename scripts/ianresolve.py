@@ -1,8 +1,7 @@
 #!/usr/bin/env python
 
 """
-Ian 2019-10-08
-print out the timelines that end with a certain string in json format
+Ian's Library of Resolve things
 """
 
 import json

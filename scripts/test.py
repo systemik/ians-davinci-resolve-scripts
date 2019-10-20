@@ -8,8 +8,8 @@ projectManager = resolve.GetProjectManager()
 project = projectManager.GetCurrentProject()
 
 if len(sys.argv) < 2:
-    print("lemme know what to search for")
-    sys.exit()
+	print("lemme know what to search for")
+	sys.exit()
 
 searchTerm = sys.argv[1]
 
