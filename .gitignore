@@ -1,0 +1,6 @@
+.DS_Store
+*.swp
+*~
+/vim/plugin
+/vim/nerdtree_plugin
+__pycache__
