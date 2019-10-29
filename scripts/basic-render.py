@@ -12,6 +12,7 @@ def AddTimelineToRender( project, timeline, presetName, targetDirectory:"/Volume
 	# 	return False
 	
 	project.SetRenderSettings({"SelectAllFrames" : 1, "TargetDir" : targetDirectory})
+	print(f"Added {timeline.GetName()}")
 	return project.AddRenderJob()
 
 def RenderAllTimelines( resolve, presetName, targetDirectory, renderFormat, renderCodec ):
@@ -27,7 +28,7 @@ def RenderAllTimelines( resolve, presetName, targetDirectory, renderFormat, rend
 		if not AddTimelineToRender(project, project.GetTimelineByIndex(index + 1), presetName, targetDirectory, renderFormat, renderCodec):
 			print("failed at line 34")
 			return False
-	# return project.StartRendering()
+	return project.StartRendering()
 
 def IsRenderingInProgress( resolve ):
 	projectManager = resolve.GetProjectManager()
@@ -68,7 +69,7 @@ def DeleteAllRenderJobs( resolve ):
 
 renderFormat = 'mov'
 renderCodec = 'Apple ProRes 422 HQ'
-renderPath = '/Volumes/ARC8050T3-4/work/CDC019 Spotify Premium vids/support/4_movie/02 offline master'
+renderPath = '/Users/ian/Dropbox (Ketchup)/work/BES039 Asia Videos/support/9_renders/preview_renders'
 renderPresetName = 'ProRes Master'
 # Get currently open project
 resolve = GetResolve()
@@ -89,6 +90,6 @@ if not RenderAllTimelines(resolve, renderPresetName, renderPath, renderFormat, r
 
 WaitForRenderingCompletion(resolve)
 
-DeleteAllRenderJobs(resolve)
+# DeleteAllRenderJobs(resolve)
 
 print("Rendering is completed.")
