@@ -69,11 +69,12 @@ def DeleteAllRenderJobs( resolve ):
 
 renderFormat = 'mov'
 renderCodec = 'Apple ProRes 422 HQ'
-renderPath = '/Users/ian/Dropbox (Ketchup)/work/BES039 Asia Videos/support/9_renders/preview_renders'
+renderPath = '/Users/ian/Desktop'
 renderPresetName = 'ProRes Master'
 # Get currently open project
 resolve = GetResolve()
 
+DeleteAllRenderJobs(resolve)
 # if not ApplyDRXToAllTimelines(resolve, drxPath, gradeMode):
 # 	print("Unable to apply a still from drx file to all timelines")
 # 	sys.exit()
