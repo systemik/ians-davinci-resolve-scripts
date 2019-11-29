@@ -1,0 +1,29 @@
+---
+sections:
+  -
+    name: Auto select
+    items:
+      -
+        label: Auto select A1..
+        key: ⌥⌘F1..
+      -
+        label: Auto select all audio
+        key: ⌥⌘F9
+      -
+        label: Auto select all video
+        key: ⌥F9
+  -
+    name: Locking tracks
+    items:
+      -
+        label: Toggle individual track
+        key: ⌥⇧1
+      -
+        label: Toggle all video
+        key: ⌥⇧9
+      -
+        label: Toggle individual audio
+        key: ⌥⇧F1
+      -
+        label: Lock all audio
+        key: ⌥⇧F9
