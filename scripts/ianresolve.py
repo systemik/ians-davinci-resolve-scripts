@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 
 """
-Ian's Library of Resolve things
+Ian's Library of Resolve things, deprecated in favour of ianresolvelib
 """
 
 import json

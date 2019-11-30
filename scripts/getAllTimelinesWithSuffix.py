@@ -11,4 +11,5 @@ if len(sys.argv) < 2:
 searchTerm = sys.argv[1]
 
 # print(getTimelineNameAndIndexBySuffix(searchTerm))
-print(getTimelinesBySuffix("06"))
+# print(getTimelinesBySuffix("06"))
+prettyPrintTimelinesWithSuffix("06")
