@@ -1,6 +1,7 @@
 from python_get_resolve import GetResolve
 import json
 import sys
+import re
 
 class bcolors:
     HEADER = '\033[95m'
@@ -22,6 +23,24 @@ renderCodec = 'Apple ProRes 422 HQ'
 renderPreset = 'amber subtitles'
 renderPath = '/Users/ian/Desktop'
 renderPresetName = 'ProRes Master'
+
+def GetTimelinesByRegexp(regexp):
+    """return array of timelines matching a regexp"""
+    timelineCount = project.GetTimelineCount()
+    compiled = re.compile(regexp)
+
+    obj = []
+    for index in range(0, int(timelineCount)):
+        updatedIndex = index + 1
+        timeline = project.GetTimelineByIndex(updatedIndex)
+        timelineName = timeline.GetName()
+
+        # print(timelineName)
+        m = re.search(regexp, timelineName)
+        if m:
+            obj.append(timeline)
+
+    return(obj)
 
 def GetTimelinesBySuffix(suffix):
     """return array of timelines with a certain suffix"""
@@ -54,7 +73,6 @@ def GetTimelineNameAndIndexBySuffix(suffix):
             tmp["index"] = updatedIndex
             obj.append(tmp)
     return(obj)
-
 
 def GetAllTimelines():
     """return all timelines"""
@@ -135,5 +153,6 @@ if __name__ == "__main__":
     # DeleteAllRenderJobs()
     # for tl in GetTimelinesBySuffix("06"):
         # AddTimelineToRender(tl, renderPreset, renderPath)
-    print(GetLotsOfInfo())
+    
+    print(GetTimelinesByRegexp(sys.argv[1:]))
 
