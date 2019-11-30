@@ -102,6 +102,7 @@ def Indent(s):
     return f"\t{s}\n"
 
 def InfoProjects():
+    """return a string of projects in current folder"""
     s = GreenHeading("GetProjectsInCurrentFolder")
     projs = projectManager.GetProjectsInCurrentFolder()
     for key, value in projs.items():
@@ -109,19 +110,21 @@ def InfoProjects():
     return s
 
 def InfoRenderFormats():
+    """return a string of render formats"""
     s = GreenHeading("GetRenderFormats")
     for key, value in project.GetRenderFormats().items():
         s += Indent(value)
     return s
 
 def InfoRenderPresets():
+    """return a string of render presets"""
     s = GreenHeading("GetRenderPresets")
     for key, value in project.GetRenderPresets().items():
         s += Indent(value)
     return s
 
-
 def GetLotsOfInfo():
+    """print a bunch of useful stuff"""
     s = ""
     s += InfoProjects()
     s += InfoRenderFormats()
