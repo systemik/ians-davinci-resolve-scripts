@@ -2,7 +2,7 @@
 
 import os
 import argparse
-import ianresolvelib as resolve
+import ResolveLib.ianresolvelib as resolve
 
 renderPreset = "MP4 1080p"
 

@@ -2,6 +2,7 @@ from python_get_resolve import GetResolve
 import json
 import sys
 import re
+# import config
 
 class bcolors:
     HEADER = '\033[95m'
@@ -20,7 +21,7 @@ project = projectManager.GetCurrentProject()
 
 renderFormat = 'mov'
 renderCodec = 'Apple ProRes 422 HQ'
-renderPreset = 'amber subtitles'
+renderPreset = 'MP4 1080p'
 renderPath = '/Users/ian/Desktop'
 renderPresetName = 'ProRes Master'
 
