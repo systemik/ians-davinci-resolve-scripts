@@ -1,14 +1,19 @@
+""" Quickly jump to any timeline in a project. Requires fzf, the fuzzy finder (https://github.com/junegunn/fzf)"""
+""" Ian 2019 """
+
 import ResolveLib.ianresolvelib as r
 import subprocess
 
 # x = r.GetTimelinesByRegexp('06$')
-x = r.GetTimelineNameAndIndexBySuffix('06')
+# x = r.GetTimelineNameAndIndexBySuffix('06')
+x = r.GetAllTimelineNameAndIndices()
 
 # print(x)
 timelineNames = []
 for timeline in x:
     timelineNames.append(timeline['name'])
 
+# pipe the timeline names to fzf
 list = subprocess.Popen(('echo', "\n".join(timelineNames)), stdout=subprocess.PIPE)
 output = subprocess.check_output(['fzf'], stdin=list.stdout, universal_newlines=True)
 # nb I had to add universal_newlines so that it would return a string instead of a byte-object

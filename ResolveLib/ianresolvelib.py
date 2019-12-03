@@ -28,7 +28,7 @@ renderPresetName = 'ProRes Master'
 def GetTimelinesByRegexp(regexp):
     """return array of timelines matching a regexp"""
     timelineCount = project.GetTimelineCount()
-    compiled = re.compile(regexp)
+    # compiled = re.compile(regexp)
 
     obj = []
     for index in range(0, int(timelineCount)):
@@ -73,6 +73,22 @@ def GetTimelineNameAndIndexBySuffix(suffix):
             tmp["name"] = timelineName
             tmp["index"] = updatedIndex
             obj.append(tmp)
+    return(obj)
+
+def GetAllTimelineNameAndIndices():
+    """return array of timelines objects with name and index properties"""
+    timelineCount = project.GetTimelineCount()
+
+    obj = []
+    for index in range(0, int(timelineCount)):
+        tmp = {}
+
+        updatedIndex = index + 1
+        timelineName = project.GetTimelineByIndex(updatedIndex).GetName()
+
+        tmp["name"] = timelineName
+        tmp["index"] = updatedIndex
+        obj.append(tmp)
     return(obj)
 
 def GetAllTimelines():
