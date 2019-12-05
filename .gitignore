@@ -6,3 +6,6 @@
 __pycache__
 resolve-cheat-sheet
 homebody.zip
+docs
+API dox
+*.pyc

@@ -1,3 +1,5 @@
+#!/usr/bin/env python3
+
 """ Quickly jump to any timeline in a project. Requires fzf, the fuzzy finder (https://github.com/junegunn/fzf)"""
 """ Ian 2019 """
 
@@ -33,6 +35,8 @@ for timeline in x:
 tlObj = r.project.GetTimelineByIndex(indexToOpen)
 r.project.SetCurrentTimeline(tlObj)
 # print(x)
+
+subprocess.run(['open', '-a', "Davinci Resolve"])
 
 
 # r.project.SetCurrentTimeline(x[2])
