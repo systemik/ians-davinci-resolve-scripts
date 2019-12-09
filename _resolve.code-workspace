@@ -5,5 +5,13 @@
 		}
 	],
 	"settings": {
+		"files.exclude": {
+			"**/.git": true,
+			"**/*.zip": true,
+			"**/*.pyc": true,
+			"**/__pycache__": true,
+			"**/.DS_Store": true
+		}
 	}
+
 }
