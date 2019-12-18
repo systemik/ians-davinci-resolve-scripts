@@ -166,6 +166,11 @@ def GetLotsOfInfo():
     s += InfoRenderPresets()
     return s
 
+def bringToFront():
+    import subprocess
+    # from subprocess import run
+    subprocess.run(['open', '-a', "Davinci Resolve"])
+    
 if __name__ == "__main__":
     # DeleteAllRenderJobs()
     # for tl in GetTimelinesBySuffix("06"):

@@ -36,7 +36,7 @@ tlObj = r.project.GetTimelineByIndex(indexToOpen)
 r.project.SetCurrentTimeline(tlObj)
 # print(x)
 
-subprocess.run(['open', '-a', "Davinci Resolve"])
+r.bringToFront()
 
 
 # r.project.SetCurrentTimeline(x[2])

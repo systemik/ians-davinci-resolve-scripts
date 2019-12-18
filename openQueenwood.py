@@ -6,6 +6,8 @@ import ResolveLib.ianresolvelib as r
 
 topLevelFolderName = "Queenwood"
 
+r.bringToFront()
+
 r.projectManager.GotoRootFolder()
 r.projectManager.OpenFolder(topLevelFolderName)
 

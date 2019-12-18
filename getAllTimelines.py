@@ -8,6 +8,9 @@ print out the timelines that end with a certain string in json format
 from python_get_resolve import GetResolve
 import json
 import sys
+import argparse
+
+
 
 def DisplayTimelinesInfo( project ):
 	timelineCount = project.GetTimelineCount()

@@ -1,3 +1,5 @@
+#!/usr/bin/env python3
+
 import ResolveLib.ianresolvelib as r
 import argparse
 
