@@ -116,6 +116,13 @@ def DeleteAllRenderJobs():
     project.DeleteAllRenderJobs()
     return
 
+def RenderWithMarkOut( timeline, presetName, targetDirectory, out=0):
+    project.SetCurrentTimeline(timeline)
+    # startFrame = timeline.GetStartFrame()
+    project.SetRenderSettings({"SelectAllFrames" : 0, "TargetDir" : targetDirectory, "MarkIn": 0, "MarkOut" : 500})
+    project.LoadRenderPreset(presetName)
+    return project.AddRenderJob()
+
 def AddTimelineToRender( timeline, presetName, targetDirectory, out=0):
     project.SetCurrentTimeline(timeline)
     project.LoadRenderPreset(presetName)

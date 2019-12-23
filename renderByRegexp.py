@@ -36,9 +36,11 @@ for tl in resolve.GetTimelinesByRegexp(args.regexp):
 
         print(m)
         # print(value)
-    if out is not 0:
+        resolve.RenderWithMarkOut(tl, renderPreset, '/Users/ian/Desktop', out=500)
+        
+    print(tl.GetName())
+
+"""     if out is not 0:
         resolve.AddTimelineToRender(tl, renderPreset, args.dest, out=out)
     else:
-        resolve.AddTimelineToRender(tl, renderPreset, args.dest)
-
-    print(tl.GetName())
+        resolve.AddTimelineToRender(tl, renderPreset, args.dest) """
