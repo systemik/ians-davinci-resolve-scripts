@@ -113,19 +113,25 @@ def PrettyPrintAllTimelines():
         print(t.GetName())
 
 def DeleteAllRenderJobs():
-	project.DeleteAllRenderJobs()
-	return
+    project.DeleteAllRenderJobs()
+    return
 
-def AddTimelineToRender( timeline, presetName, targetDirectory):
-	project.SetCurrentTimeline(timeline)
-	project.LoadRenderPreset(presetName)
-	
-	# if not project.SetCurrentRenderFormatAndCodec(renderFormat, renderCodec):
-	# 	return False
-	
-	project.SetRenderSettings({"SelectAllFrames" : 1, "TargetDir" : targetDirectory})
-	print(f"Added {timeline.GetName()}")
-	return project.AddRenderJob()
+def AddTimelineToRender( timeline, presetName, targetDirectory, out=0):
+    project.SetCurrentTimeline(timeline)
+    project.LoadRenderPreset(presetName)
+    startFrame = timeline.GetStartFrame()
+
+    # if not project.SetCurrentRenderFormatAndCodec(renderFormat, renderCodec):
+    # 	return False
+    print(f"hey render: {out}")
+    if out is not 0:
+        print(f"rendering {out}")
+        project.SetRenderSettings({"SelectAllFrames" : 0, "TargetDir" : targetDirectory, "MarkIn": startFrame, "MarkOut" : startFrame + out})
+    else:
+        project.SetRenderSettings({"SelectAllFrames" : 1, "TargetDir" : targetDirectory})
+
+    print(f"Added {timeline.GetName()}")
+    return project.AddRenderJob()
 
 def GetProjectsInCurrentFolder():
     return projectManager.GetProjectsInCurrentFolder()

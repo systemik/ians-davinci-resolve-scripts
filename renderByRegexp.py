@@ -24,4 +24,21 @@ if not args.keep:
     resolve.DeleteAllRenderJobs()
 
 for tl in resolve.GetTimelinesByRegexp(args.regexp):
-    resolve.AddTimelineToRender(tl, renderPreset, args.dest)
+    # print(tl.GetMarkers())
+    out = 0
+    for m in tl.GetMarkers():
+        currentMarker = tl.GetMarkers()[m]
+        if (currentMarker["name"] == "out"):
+            print("yay made it")
+            resolve.project.SetRenderSettings({"MarkOut":m})
+            out = m
+            print(out)
+
+        print(m)
+        # print(value)
+    if out is not 0:
+        resolve.AddTimelineToRender(tl, renderPreset, args.dest, out=out)
+    else:
+        resolve.AddTimelineToRender(tl, renderPreset, args.dest)
+
+    print(tl.GetName())
