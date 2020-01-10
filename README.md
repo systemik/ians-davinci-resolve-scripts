@@ -4,7 +4,7 @@
 
 ### renderByRegexp.py
 
-Pass this script a regular expression (e.g. `24$` to render every timeline)
+Pass this script a regular expression (e.g. `24$` to render every timeline
 that ends in `24`) and this script will put each match into the render queue.
 
 **Example:**
@@ -15,7 +15,7 @@ that ends in `24`) and this script will put each match into the render queue.
 
 This will render every timeline whose name ends in "selects", using the preset "Quick MP4", and set the destination folder to "~/work/renders".
 
-### `renderBySuffix.py`
+### renderBySuffix.py
 
 Kind of convenience version of `renderByRegexp.py`. Pass it a string and it will add each timeline with a matching *ending* to the render queue. E.g. `renderBySuffix.py 24` will render
 
@@ -35,7 +35,7 @@ This will render every timeline whose name ends in "selects", using the preset n
 
 ## Opening things
 
-### `openLastFileInFolder.py`
+### openLastFileInFolder.py
 
 Open the most recent version of a project. Note that it only works on the filename.
 
@@ -44,11 +44,11 @@ files there named "Project 01" "Project 02" et cetera. Manual versioning.
 
 This script lists them in alphabetical order and then opens the last one in the list. So … hopefully it works for you? 
 
-### `openTimelinesMatchingRegexp.py`
+### openTimelinesMatchingRegexp.py
 
 Pass it a regular expression (e.g. "24$" if you want to just match timelines that end in "24") and this script will open each match in Resolve.
 
-### `quickswitch.py`
+### quickswitch.py
 
 **NOTE:** this script requires [fzf, the Fuzzy Finder](https://github.com/junegunn/fzf).
 
