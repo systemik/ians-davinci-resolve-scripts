@@ -6,11 +6,21 @@ These are scripts that I find super helpful and use nearly every day. I've teste
 
 # Installation.
 
-Well, *hopefully* you can just clone or download this repository and run them from the resulting folder. To run everything you'll need [Python 3](https://www.python.org), [DaVinci Resolve 16](https://www.blackmagicdesign.com/products/davinciresolve), and [fzf](https://github.com/junegunn/fzf).
+Clone or download this repository and run them from the resulting folder. To run everything you'll need [Python 3](https://www.python.org), [DaVinci Resolve 16](https://www.blackmagicdesign.com/products/davinciresolve), and [fzf](https://github.com/junegunn/fzf).
 
 # The Scripts.
 
-They're divided up into Rendering Things, Opening Things, and Listing Things.
+They're divided up into Renaming Things, Rendering Things, Opening Things, and Listing Things.
+
+## Renaming things
+
+### renameTimelines.py
+
+Rename Resolve timelines by specifying a regular expression.
+
+```bash
+> python3 renameTimelines.py '45$' 46
+```
 
 ## Rendering things
 

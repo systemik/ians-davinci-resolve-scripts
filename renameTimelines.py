@@ -5,7 +5,7 @@ import argparse
 import ResolveLib.ianresolvelib as resolve
 import re
 
-parser = argparse.ArgumentParser(description="Add timelines to Resolve's render queue by specifying a suffix.")
+parser = argparse.ArgumentParser(description="Rename Resolve timelines by specifying a regular expression.")
 parser.add_argument("search", help="Search term, adoy")
 parser.add_argument("replace", help="Replace term innit")
 # parser.add_argument("-r", "--regexp", help="")
