@@ -1,1 +1,0 @@
-DaVinciResolveScript.scriptapp("Fusion")
