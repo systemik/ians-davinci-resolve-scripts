@@ -19,6 +19,7 @@ resolve = GetResolve()
 projectManager = resolve.GetProjectManager()
 project = projectManager.GetCurrentProject()
 
+# set some defaults here
 renderFormat = 'mov'
 renderCodec = 'Apple ProRes 422 HQ'
 renderPreset = 'MP4 1080p'

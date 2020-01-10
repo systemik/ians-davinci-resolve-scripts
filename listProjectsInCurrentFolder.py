@@ -1,7 +1,5 @@
-from ianresolve import GetResolve
+#!/usr/bin/env python3
 
-resolve = GetResolve()
-projectManager = resolve.GetProjectManager()
-project = projectManager.GetCurrentProject()
+import ResolveLib.ianresolvelib as r
 
-print(projectManager.GetProjectsInCurrentFolder())
+print(r.projectManager.GetProjectsInCurrentFolder())

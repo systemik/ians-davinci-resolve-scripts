@@ -1,15 +1,14 @@
-#!/usr/bin/env python
+#!/usr/bin/env python3
 
 """
-Ian 2019-10-08
+Ian 2020-01-10
 print out the timelines that end with a certain string in json format
 """
 
-from python_get_resolve import GetResolve
+from ResolveLib.python_get_resolve import GetResolve
 import json
 import sys
 import argparse
-
 
 
 def DisplayTimelinesInfo( project ):
