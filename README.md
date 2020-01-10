@@ -1,4 +1,16 @@
-# Ian’s Resolve Scripts
+# Ian’s Resolve Scripts.
+
+I started exploring the DaVinci Resolve API a little while back to see if there was an easy way to render a bunch of timelines at once … since I missed that from Premiere Pro. Turns out it IS possible, and a whole lot of other stuff besides.
+
+These are scripts that I find super helpful and use nearly every day. I've tested them with Python 3 and Resolve 16, so if you're not using those then there's a good chance they won't work.
+
+# Installation.
+
+Well, *hopefully* you can just clone or download this repository and run them from the resulting folder. To run everything you'll need [Python 3](https://www.python.org), [DaVinci Resolve 16](https://www.blackmagicdesign.com/products/davinciresolve), and [fzf](https://github.com/junegunn/fzf).
+
+# The Scripts.
+
+They're divided up into Rendering Things, Opening Things, and Listing Things.
 
 ## Rendering things
 
@@ -17,13 +29,9 @@ This will render every timeline whose name ends in "selects", using the preset "
 
 ### renderBySuffix.py
 
-Kind of convenience version of `renderByRegexp.py`. Pass it a string and it will add each timeline with a matching *ending* to the render queue. E.g. `renderBySuffix.py 24` will render
+This is kind of a convenience version of `renderByRegexp.py`, if you can't be bothered with regular expressions. Pass it a string and it will add each timeline with a matching *ending* to the render queue. 
 
-`example-timeline-24`
-
-but not
-
-`timeline-24-example`
+For example, `renderBySuffix.py 24` will render a timeline named `example-timeline-24`, but not a timeline named `timeline-24-example`
 
 **Example:**
 
@@ -39,10 +47,17 @@ This will render every timeline whose name ends in "selects", using the preset n
 
 Open the most recent version of a project. Note that it only works on the filename.
 
-Pass in the "top level" folder name, and it assumes that there are loads of 
-files there named "Project 01" "Project 02" et cetera. Manual versioning.
+Pass in the "top level" folder name, and it assumes that there are loads of files there named "Project 01" "Project 02" et cetera. Manual versioning.
 
 This script lists them in alphabetical order and then opens the last one in the list. So … hopefully it works for you? 
+
+**Example:** 
+
+```bash
+> python3 openLastFileInFolder.py MyDumbProject
+```
+
+Imagine your Resolve database had a folder at the top level called MyDumbProject. Inside you have a bunch of projects, named "DumbProject_01", "DumbProject_02", "DumbProject_03" etc. This will open DumbProject_03. In theory.
 
 ### openTimelinesMatchingRegexp.py
 
@@ -55,6 +70,8 @@ Pass it a regular expression (e.g. "24$" if you want to just match timelines tha
 If you have a project with a lot of timelines, this will let you sift through them quickly using the amazing fuzzy finding abilities of fzf. You select ONE timeline and `quickswitch.py` will open it for you.
 
 ## Listing things
+
+These are all more or less the same, and they're about listing things, so here's a list:
 
 - `listAllTimelines.py`
 - `listCurrentTimecode.py`
