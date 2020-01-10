@@ -13,8 +13,8 @@ This script lists them in alphabetical order and then opens the last
 one in the list. So … hopefully it works for you? No guarantees.
 """
 
-parser = argparse.ArgumentParser(description="Open the last (hopefully most recent) version of a file in a folder, in Resolve.")
-parser.add_argument("folder_name", help="The name of the folder to look in.")
+parser = argparse.ArgumentParser(description="Open the last (hopefully most recent) version of a file in a folder. In DaVinci Resolve, in case that wasn't clear.")
+parser.add_argument("folder_name", help="The name of the top level folder to look in.")
 args = parser.parse_args()
 
 topLevelFolderName = args.folder_name
@@ -24,11 +24,10 @@ r.bringToFront()
 r.projectManager.GotoRootFolder()
 r.projectManager.OpenFolder(topLevelFolderName)
 
-projects = r.projectManager.GetProjectsInCurrentFolder()
+# gotta get the values from the dict, and convert to a list. Ugh
+projects = list(r.projectManager.GetProjectsInCurrentFolder().values())
 
-print(projects)
+# finally, sort it and grab the last one
+last = sorted(projects)[-1]
 
-# can't access a dict by index, apparently. Coerce to a list first
-# lastOne = list(projects.values())[-1]
-
-# r.projectManager.LoadProject(lastOne)
+r.projectManager.LoadProject(last)
