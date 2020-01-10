@@ -1,4 +1,4 @@
-from python_get_resolve import GetResolve
+from ResolveLib.python_get_resolve import GetResolve
 import json
 import sys
 import re

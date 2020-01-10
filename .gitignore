@@ -9,3 +9,5 @@ homebody.zip
 docs
 API dox
 *.pyc
+test*
+scratch*

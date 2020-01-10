@@ -2,20 +2,22 @@
 
 import os
 import argparse
-import ianresolvelib as resolve
+import ResolveLib.ianresolvelib as resolve
 
 renderPreset = "MP4 1080p"
 
 parser = argparse.ArgumentParser(description="Add timelines to Resolve's render queue by specifying a suffix.")
+parser.add_argument("-c", "--clear", help="Clear render queue first", action="store_true")
 parser.add_argument("-d", "--dest", help="Destination directory for the renders")
-parser.add_argument("suffix")
+parser.add_argument("suffix", help="The suffix to match against timeline names")
 args = parser.parse_args()
 
 # print(args.dest)
 if not args.dest:
     args.dest = os.getcwd()
 
-resolve.DeleteAllRenderJobs()
+if args.clear:
+    resolve.DeleteAllRenderJobs()
 
 for tl in resolve.GetTimelinesBySuffix(args.suffix):
     resolve.AddTimelineToRender(tl, renderPreset, args.dest)
