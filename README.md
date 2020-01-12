@@ -59,7 +59,7 @@ For example, `renderBySuffix.py 24` will render a timeline named `example-timeli
 > python3 renderBySuffix.py -p '720p MP4' -d ~/Desktop/ selects
 ```
 
-This will render every timeline whose name ends in "selects", using the preset named "720p MP4", and setting the destination to "~/Desktop".
+This will render every timeline whose name ends in `selects`, using the preset named `720p MP4`, and setting the destination to `~/Desktop`.
 
 ## Opening things
 
