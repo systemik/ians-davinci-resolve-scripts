@@ -13,9 +13,9 @@ import ResolveLib.ianresolvelib as resolve
 renderPreset = "MP4 1080p"
 
 parser = argparse.ArgumentParser(description="Add timelines to Resolve's render queue by specifying a suffix.")
+parser.add_argument("-k", "--keep", help="Keep the queue instead of clearing it first", action="store_true")
 parser.add_argument("-d", "--dest", help="Destination directory for the renders")
-parser.add_argument("-k", "--keep", help="Keep the queue instead of deleting it", action="store_true")
-parser.add_argument("-p", "--preset", help="Override the default preset")
+parser.add_argument("-p", "--preset", help="Rendering preset to use")
 parser.add_argument("regexp")
 args = parser.parse_args()
 

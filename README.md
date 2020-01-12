@@ -2,15 +2,23 @@
 
 I started exploring the DaVinci Resolve API a little while back to see if there was an easy way to render a bunch of timelines at once … since I missed that from Premiere Pro. Turns out it IS possible, and a whole lot of other stuff besides.
 
+# Requirements. 
+
 These are scripts that I find super helpful and use nearly every day. I've tested them with Python 3 and Resolve 16, so if you're not using those then there's a good chance they won't work.
+
+They're only tested on MacOS. I don't have Windows or Linux to try out.
 
 # Installation.
 
-Clone or download this repository and run them from the resulting folder. To run everything you'll need [Python 3](https://www.python.org), [DaVinci Resolve 16](https://www.blackmagicdesign.com/products/davinciresolve), and [fzf](https://github.com/junegunn/fzf).
+Clone or download this repository and run them from the resulting folder. To run most everything you'll need [Python 3](https://www.python.org), [DaVinci Resolve 16](https://www.blackmagicdesign.com/products/davinciresolve).
+
+To run `quickswitch.py` you'll also need [fzf](https://github.com/junegunn/fzf).
 
 # The Scripts.
 
 They're divided up into Renaming Things, Rendering Things, Opening Things, and Listing Things.
+
+A couple of them use regular expressions. If you don't know what these are, they're very powerful and handy way to search text. There's [plenty of documentation](https://ryanstutorials.net/regular-expressions-tutorial/) out there.
 
 ## Renaming things
 
@@ -18,16 +26,18 @@ They're divided up into Renaming Things, Rendering Things, Opening Things, and L
 
 Rename Resolve timelines by specifying a regular expression.
 
+**Example:**
+
 ```bash
 > python3 renameTimelines.py '45$' 46
 ```
+Rename every timeline that ends in `45`, by changing `45` to `46`. I use this for manually creating a new version of my timelines. This example would change `Bogus journey 45` to `Bogus journey 46`.
 
 ## Rendering things
 
 ### renderByRegexp.py
 
-Pass this script a regular expression (e.g. `24$` to render every timeline
-that ends in `24`) and this script will put each match into the render queue.
+Pass this script a regular expression and this script will put each match into the render queue.
 
 **Example:**
 
@@ -35,7 +45,7 @@ that ends in `24`) and this script will put each match into the render queue.
 > python3 renderByRegexp.py --preset 'Quick MP4' --dest ~/work/renders --keep 'selects$'
 ```
 
-This will render every timeline whose name ends in "selects", using the preset "Quick MP4", and set the destination folder to "~/work/renders".
+This will render every timeline whose name ends in `selects`, using the preset `Quick MP4`, and set the destination folder to `~/work/renders`.
 
 ### renderBySuffix.py
 
@@ -57,7 +67,7 @@ This will render every timeline whose name ends in "selects", using the preset n
 
 Open the most recent version of a project. Note that it only works on the filename.
 
-Pass in the "top level" folder name, and it assumes that there are loads of files there named "Project 01" "Project 02" et cetera. Manual versioning.
+Pass in the top level folder name, and it assumes that there are loads of files there named `Project 01`, `Project 02`, et cetera. Manual versioning.
 
 This script lists them in alphabetical order and then opens the last one in the list. So … hopefully it works for you? 
 
@@ -67,11 +77,19 @@ This script lists them in alphabetical order and then opens the last one in the 
 > python3 openLastFileInFolder.py MyDumbProject
 ```
 
-Imagine your Resolve database had a folder at the top level called MyDumbProject. Inside you have a bunch of projects, named "DumbProject_01", "DumbProject_02", "DumbProject_03" etc. This will open DumbProject_03. In theory.
+Imagine your Resolve database had a folder at the top level called `MyDumbProject`. Inside you have a bunch of projects, named `DumbProject_01`, `DumbProject_02`, `DumbProject_03` etc. This will open `DumbProject_03`. In theory.
 
 ### openTimelinesMatchingRegexp.py
 
-Pass it a regular expression (e.g. "24$" if you want to just match timelines that end in "24") and this script will open each match in Resolve.
+Pass it a regular expression (e.g. `final$` if you want to just match timelines that end in `final`) and this script will open each match in Resolve.
+
+**Example:**
+
+```bash
+> python3 openTimelinesMatchingRegexp.py 'selects$'
+```
+
+This example will open every timeline whose name *ends* with the word `selects`. So it will open `futile banana selects` and `angry orangutan selects` but not `my selects 01`. 
 
 ### quickswitch.py
 
