@@ -1,35 +1,34 @@
 #!/usr/bin/env python3
 
 """
-Ian 2020-01-10
-print out the timelines that end with a certain string in json format
+Ian 2020-01-13
+list all the render presets available
 """
 
-from ResolveLib.python_get_resolve import GetResolve
-import json
-import sys
-import argparse
+import ResolveLib.ianresolvelib as r
 
+print("\n".join(r.project.GetRenderPresets().values()))
 
-def DisplayTimelinesInfo( project ):
-	timelineCount = project.GetTimelineCount()
+""" 
+Example output:
 
-	obj = []
-	for index in range (0, int(timelineCount)):
-		tmp={}
-
-		updatedIndex = index + 1
-		timelineName = project.GetTimelineByIndex(updatedIndex).GetName()
-		
-		tmp["name"] = timelineName
-		tmp["index"] = updatedIndex
-		obj.append(tmp)
-
-	print(json.dumps(obj))
-	return
-
-resolve = GetResolve()
-projectManager = resolve.GetProjectManager()
-project = projectManager.GetCurrentProject()
-
-DisplayTimelinesInfo(project)
+YouTube - 720p
+YouTube - 1080p
+YouTube - 2160p
+Vimeo - 720p
+Vimeo - 1080p
+Vimeo - 2160p
+ProRes Master
+H.264 Master
+H.265 Master
+IMF - Generic
+IMF - 20th Century Fox
+IMF - Netflix
+Frame.io
+FCP - Final Cut Pro 7
+FCP - Final Cut Pro X
+Premiere XML
+AVID AAF
+Pro Tools
+Audio Only
+"""

@@ -110,6 +110,7 @@ These are all more or less the same, and they're about listing things, so here's
 - `listProjectsInCurrentFolder.py`
 - `listRenderCodecs.py`
 - `listRenderFormats.py`
+- `listRenderPresets.py`
 
 These are very simple and do pretty much what you'd expect; they're just an easy way to query Resolve.
 
