@@ -132,36 +132,56 @@ def GetProjectsInCurrentFolder():
     return projectManager.GetProjectsInCurrentFolder()
 
 def GreenHeading(s):
-    return bcolors.OKGREEN + f"{s}\n" + bcolors.ENDC
+    return "\n" + bcolors.OKGREEN + f"{s}\n" + bcolors.ENDC
 
-def Indent(s):
-    return f"\t{s}\n"
+def Trace(s):
+    return f"{s}\n"
+
+def InfoCurrentProject():
+    """ return info about the current project """
+    s = GreenHeading("InfoCurrentProject")
+    pm = projectManager.GetCurrentProject()
+    s += Trace(f"Current project: {pm.GetName()}")
+    s += Trace(f"Current timeline: {pm.GetCurrentTimeline().GetName()}")
+    s += Trace(f"Timeline count: {pm.GetTimelineCount()}")
+
+    # s += Trace(f"Last modified: {pm.GetProjectLastModifiedTime()}")
+    return s
 
 def InfoProjects():
     """return a string of projects in current folder"""
     s = GreenHeading("GetProjectsInCurrentFolder")
     projs = projectManager.GetProjectsInCurrentFolder()
-    for key, value in projs.items():
-        s += Indent(value)
+    s += ", ".join(projs.values())
+    s += "\n"
+    return s
+
+def InfoTimelines():
+    """ return a list of timelines in current project """
+    s = GreenHeading("InfoTimelines")
+    s += ", ".join([x.GetName() for x in GetAllTimelines()])
+    s += "\n"
     return s
 
 def InfoRenderFormats():
     """return a string of render formats"""
     s = GreenHeading("GetRenderFormats")
-    for key, value in project.GetRenderFormats().items():
-        s += Indent(value)
+    s += ", ".join(project.GetRenderFormats().values())
+    s += "\n"
     return s
 
 def InfoRenderPresets():
     """return a string of render presets"""
     s = GreenHeading("GetRenderPresets")
-    for key, value in project.GetRenderPresets().items():
-        s += Indent(value)
+    s += ", ".join(project.GetRenderPresets().values())
+    s += "\n"
     return s
 
-def GetLotsOfInfo():
+def PrintLotsOfInfo():
     """print a bunch of useful stuff"""
     s = ""
+    s += InfoCurrentProject()
+    s += InfoTimelines()
     s += InfoProjects()
     s += InfoRenderFormats()
     s += InfoRenderPresets()
@@ -173,9 +193,12 @@ def bringToFront():
     subprocess.run(['open', '-a', "Davinci Resolve"])
     
 if __name__ == "__main__":
+    pass
+    # import python_get_resolve
+    # PrintLotsOfInfo()
     # DeleteAllRenderJobs()
     # for tl in GetTimelinesBySuffix("06"):
         # AddTimelineToRender(tl, renderPreset, renderPath)
     
-    print(GetTimelinesByRegexp(sys.argv[1:]))
+    # print(GetTimelinesByRegexp(sys.argv[1:]))
 
