@@ -8,6 +8,8 @@ These are scripts that I find super helpful and use nearly every day. I've teste
 
 They're only tested on MacOS. I don't have Windows or Linux to try out.
 
+Please note that there is NOT a lot of error checking. These are just little tools I've written for myself. They're not intended to be commercial grade software. Caveat, as they say, emptor.
+
 # Installation.
 
 Clone or download this repository and run them from the resulting folder. To run most everything you'll need [Python 3](https://www.python.org), [DaVinci Resolve 16](https://www.blackmagicdesign.com/products/davinciresolve).
