@@ -1,7 +1,11 @@
 #!/usr/bin/env python3
 
-""" Quickly jump to any timeline in a project. Requires fzf, the fuzzy finder (https://github.com/junegunn/fzf)"""
-""" Ian 2019 """
+"""
+Ian 2019
+Quickly jump to any timeline in a project.
+Requires fzf, the fuzzy finder (https://github.com/junegunn/fzf)
+ianhaigh.com
+"""
 
 import ResolveLib.ianresolvelib as r
 import subprocess

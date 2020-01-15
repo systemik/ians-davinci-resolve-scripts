@@ -1,5 +1,11 @@
 #!/usr/bin/env python
 
+""" 
+Ian 2020-01-15
+Add timelines to Resolve's render queue by specifying a suffix.
+ianhaigh.com
+"""
+
 import os
 import argparse
 import ResolveLib.ianresolvelib as resolve

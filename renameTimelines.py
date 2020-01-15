@@ -1,6 +1,10 @@
 #!/usr/bin/env python3
 
-# import os
+""" 
+Ian 2020-01-15
+Rename timelines in DaVinci Resolve using regular expressions.
+ianhaigh.com
+"""
 import argparse
 import ResolveLib.ianresolvelib as resolve
 import re

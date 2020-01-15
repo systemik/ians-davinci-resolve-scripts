@@ -1,8 +1,10 @@
 #!/usr/bin/env python3
 
 """ 
+Ian 2020-01-15
 Pass this script a regular expression (e.g. '24$' to render every timeline)
 that ends in '24') and this script will put each match into the render queue.
+ianhaigh.com
 """
 
 import os

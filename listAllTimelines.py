@@ -3,6 +3,7 @@
 """
 Ian 2020-01-10
 print out the timelines that end with a certain string in json format
+ianhaigh.com
 """
 
 import ResolveLib.ianresolvelib as r
