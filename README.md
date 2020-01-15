@@ -2,6 +2,10 @@
 
 I started exploring the DaVinci Resolve API a little while back to see if there was an easy way to render a bunch of timelines at once … since I missed that from Premiere Pro. Turns out it IS possible, and a whole lot of other stuff besides.
 
+# Tutorial.
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/cEBuhfILPgQ" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
 # Requirements. 
 
 These are scripts that I find super helpful and use nearly every day. I've tested them with Python 3 and Resolve 16, so if you're not using those then there's a good chance they won't work.
@@ -95,7 +99,7 @@ This example will open every timeline whose name *ends* with the word `selects`.
 
 ### quickswitch.py
 
-**NOTE:** this script requires [fzf, the Fuzzy Finder](https://github.com/junegunn/fzf).
+**NOTE:** this script requires [fzf, the Fuzzy Finder](https://github.com/junegunn/fzf). Also, it will attempt to bring Resolve to the front … which will only work on MacOS. 
 
 If you have a project with a lot of timelines, this will let you sift through them quickly using the amazing fuzzy finding abilities of fzf. You select ONE timeline and `quickswitch.py` will open it for you.
 
