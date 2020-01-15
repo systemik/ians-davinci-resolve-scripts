@@ -2,11 +2,13 @@
 
 I started exploring the DaVinci Resolve API a little while back to see if there was an easy way to render a bunch of timelines at once … since I missed that from Premiere Pro. Turns out it IS possible, and a whole lot of other stuff besides.
 
-# Tutorial.
+# Video.
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/cEBuhfILPgQ" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+[Here's a screencast](https://www.youtube.com/watch?v=cEBuhfILPgQ) that gives you an overview of each script.
 
 # Requirements. 
+
+This is fairly technical, but if you're looking at this I'm gonna guess that *you're* fairly technical.
 
 These are scripts that I find super helpful and use nearly every day. I've tested them with Python 3 and Resolve 16, so if you're not using those then there's a good chance they won't work.
 
