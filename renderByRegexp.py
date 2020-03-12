@@ -12,6 +12,7 @@ import argparse
 import ResolveLib.ianresolvelib as resolve
 
 def pathToRenders():
+	# my super specific bit that uses the ketchup-projects project to find the right flodder
 	import json
 
 	CONFIG = "/Users/ian/.ketchupProjects.json"
