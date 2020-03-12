@@ -11,6 +11,13 @@ import os
 import argparse
 import ResolveLib.ianresolvelib as resolve
 
+def pathToRenders():
+	import json
+
+	CONFIG = "/Users/ian/.ketchupProjects.json"
+	configJSON = json.load(open(CONFIG))
+	return configJSON["currentProject"] + "/support/9_renders/preview_renders"
+	
 # set a default here if you prefer not to use an option each time
 renderPreset = "MP4 1080p"
 
@@ -21,15 +28,18 @@ parser.add_argument("-p", "--preset", help="Rendering preset to use")
 parser.add_argument("regexp")
 args = parser.parse_args()
 
-# print(args.dest)
+print("hi there")
 if not args.dest:
-    args.dest = os.getcwd()
+	args.dest = pathToRenders()
+	print(args.dest)
+	# args.dest = os.getcwd()
 
 if args.preset:
-    renderPreset = args.preset
+	renderPreset = args.preset
 
 if not args.keep:
-    resolve.DeleteAllRenderJobs()
+	resolve.DeleteAllRenderJobs()
 
 for tl in resolve.GetTimelinesByRegexp(args.regexp):
-    resolve.AddTimelineToRender(tl, renderPreset, args.dest)
+	resolve.AddTimelineToRender(tl, renderPreset, args.dest)
+
