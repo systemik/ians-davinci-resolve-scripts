@@ -11,7 +11,8 @@
 			"**/*.pyc": true,
 			"**/__pycache__": true,
 			"**/.DS_Store": true
-		}
+		},
+		"python.pythonPath": "/usr/local/opt/python/bin/python3.7"
 	}
 
 }

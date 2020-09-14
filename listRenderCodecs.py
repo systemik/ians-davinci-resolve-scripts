@@ -2,7 +2,7 @@
 
 import ResolveLib.ianresolvelib as r
 
-print(r.p project.GetRenderCodecs('mov'))
+print(r.project.GetRenderCodecs('mov'))
 
 """
 example output

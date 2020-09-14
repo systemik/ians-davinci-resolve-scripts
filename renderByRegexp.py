@@ -29,7 +29,6 @@ parser.add_argument("-p", "--preset", help="Rendering preset to use")
 parser.add_argument("regexp")
 args = parser.parse_args()
 
-print("hi there")
 if not args.dest:
 	args.dest = pathToRenders()
 	print(args.dest)

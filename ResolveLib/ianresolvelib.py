@@ -18,6 +18,8 @@ class bcolors:
 resolve = GetResolve()
 projectManager = resolve.GetProjectManager()
 project = projectManager.GetCurrentProject()
+mediastorage = resolve.GetMediaStorage()
+mediapool = project.GetMediaPool()
 
 # set some defaults here
 renderFormat = 'mov'
