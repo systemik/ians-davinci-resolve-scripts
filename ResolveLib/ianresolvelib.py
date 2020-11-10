@@ -1,8 +1,9 @@
 from ResolveLib.python_get_resolve import GetResolve
-import json
-import sys
+# import json
+# import sys
 import re
 # import config
+
 
 class bcolors:
     HEADER = '\033[95m'
@@ -26,6 +27,7 @@ renderPreset = 'MP4 1080p'
 renderPath = '/Users/ian/Desktop'
 renderPresetName = 'ProRes Master'
 
+
 def GetTimelinesByRegexp(regexp):
     """return array of timelines matching a regexp"""
     timelineCount = project.GetTimelineCount()
@@ -44,6 +46,7 @@ def GetTimelinesByRegexp(regexp):
 
     return(obj)
 
+
 def GetTimelinesBySuffix(suffix):
     """return array of timelines with a certain suffix"""
     timelineCount = project.GetTimelineCount()
@@ -58,6 +61,7 @@ def GetTimelinesBySuffix(suffix):
             obj.append(timeline)
 
     return(obj)
+
 
 def GetTimelineNameAndIndexBySuffix(suffix):
     """return array of timelines with a certain suffix"""
@@ -76,6 +80,7 @@ def GetTimelineNameAndIndexBySuffix(suffix):
             obj.append(tmp)
     return(obj)
 
+
 def GetAllTimelineNameAndIndices():
     """return array of timelines objects with name and index properties"""
     timelineCount = project.GetTimelineCount()
@@ -92,6 +97,14 @@ def GetAllTimelineNameAndIndices():
         obj.append(tmp)
     return(obj)
 
+
+def GetTimelineNamesAsList():
+    """
+    return list of all timeline names
+    """
+    return([i.GetName() for i in GetAllTimelines()])
+
+
 def GetAllTimelines():
     """return all timelines"""
     timelineCount = project.GetTimelineCount()
@@ -103,39 +116,48 @@ def GetAllTimelines():
         obj.append(timeline)
     return(obj)
 
+
 def PrettyPrintTimelinesWithSuffix(suffix):
     timelines = GetTimelinesBySuffix(suffix)
     for t in timelines:
         print(t.GetName())
+
 
 def PrettyPrintAllTimelines():
     timelines = GetAllTimelines()
     for t in timelines:
         print(t.GetName())
 
-def DeleteAllRenderJobs():
-	project.DeleteAllRenderJobs()
-	return
 
-def AddTimelineToRender( timeline, presetName, targetDirectory):
-	project.SetCurrentTimeline(timeline)
-	project.LoadRenderPreset(presetName)
-	
-	# if not project.SetCurrentRenderFormatAndCodec(renderFormat, renderCodec):
-	# 	return False
-	
-	project.SetRenderSettings({"SelectAllFrames" : 1, "TargetDir" : targetDirectory})
-	print(f"Added {timeline.GetName()}")
-	return project.AddRenderJob()
+def DeleteAllRenderJobs():
+    project.DeleteAllRenderJobs()
+    return
+
+
+def AddTimelineToRender(timeline, presetName, targetDirectory):
+    project.SetCurrentTimeline(timeline)
+    project.LoadRenderPreset(presetName)
+
+    # if not project.SetCurrentRenderFormatAndCodec(renderFormat, renderCodec):
+    # 	return False
+
+    project.SetRenderSettings(
+        {"SelectAllFrames": 1, "TargetDir": targetDirectory})
+    print(f"Added {timeline.GetName()}")
+    return project.AddRenderJob()
+
 
 def GetProjectsInCurrentFolder():
     return projectManager.GetProjectsInCurrentFolder()
 
+
 def GreenHeading(s):
     return "\n" + bcolors.OKGREEN + f"{s}\n" + bcolors.ENDC
 
+
 def Trace(s):
     return f"{s}\n"
+
 
 def InfoCurrentProject():
     """ return info about the current project """
@@ -148,6 +170,7 @@ def InfoCurrentProject():
     # s += Trace(f"Last modified: {pm.GetProjectLastModifiedTime()}")
     return s
 
+
 def InfoProjects():
     """return a string of projects in current folder"""
     s = GreenHeading("GetProjectsInCurrentFolder")
@@ -156,12 +179,14 @@ def InfoProjects():
     s += "\n"
     return s
 
+
 def InfoTimelines():
     """ return a list of timelines in current project """
     s = GreenHeading("InfoTimelines")
     s += ", ".join([x.GetName() for x in GetAllTimelines()])
     s += "\n"
     return s
+
 
 def InfoRenderFormats():
     """return a string of render formats"""
@@ -170,12 +195,14 @@ def InfoRenderFormats():
     s += "\n"
     return s
 
+
 def InfoRenderPresets():
     """return a string of render presets"""
     s = GreenHeading("GetRenderPresets")
     s += ", ".join(project.GetRenderPresets().values())
     s += "\n"
     return s
+
 
 def PrintLotsOfInfo():
     """print a bunch of useful stuff"""
@@ -187,18 +214,19 @@ def PrintLotsOfInfo():
     s += InfoRenderPresets()
     return s
 
+
 def bringToFront():
     import subprocess
     # from subprocess import run
     subprocess.run(['open', '-a', "Davinci Resolve"])
-    
+
+
 if __name__ == "__main__":
     pass
     # import python_get_resolve
     # PrintLotsOfInfo()
     # DeleteAllRenderJobs()
     # for tl in GetTimelinesBySuffix("06"):
-        # AddTimelineToRender(tl, renderPreset, renderPath)
-    
-    # print(GetTimelinesByRegexp(sys.argv[1:]))
+    # AddTimelineToRender(tl, renderPreset, renderPath)
 
+    # print(GetTimelinesByRegexp(sys.argv[1:]))

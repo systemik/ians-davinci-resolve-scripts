@@ -1,10 +1,7 @@
 #!/usr/bin/env python3
 
 """
-Ian 2020-01-15
-Pass this script a regular expression (e.g. '24$' to render every timeline)
-that ends in '24') and this script will put each match into the render queue.
-ianhaigh.com
+Ian 2020-10-20
 """
 
 
@@ -26,22 +23,33 @@ def pathToRenders():
 renderPreset = "MP4 1080p"
 
 parser = argparse.ArgumentParser(
-    description="Add timelines to Resolve render queue by regexp.")
+    description="Add timelines to Resolve render queue.")
 
 parser.add_argument(
     "-k", "--keep", help="Keep the queue instead of clearing it first",
     action="store_true")
 
+# parser.add_argument(
+#     "-r", "--regexp", help="Interpret as regular expression"
+# )
+
 parser.add_argument(
     "-d", "--dest", help="Destination directory for the renders")
 
 parser.add_argument("-p", "--preset", help="Rendering preset to use")
-parser.add_argument("regexp")
+
+parser.add_argument(
+    '-r', '--regexp', help="Interpret as regular expression")
+
+parser.add_argument(
+    'timelines', nargs=argparse.REMAINDER
+)
+
 args = parser.parse_args()
 
 if not args.dest:
     args.dest = pathToRenders()
-    print(args.dest)
+    # print(args.dest)
     # args.dest = os.getcwd()
 
 if args.preset:
@@ -50,5 +58,14 @@ if args.preset:
 if not args.keep:
     resolve.DeleteAllRenderJobs()
 
-for tl in resolve.GetTimelinesByRegexp(args.regexp):
-    resolve.AddTimelineToRender(tl, renderPreset, args.dest)
+if args.regexp:
+    for tl in resolve.GetTimelinesByRegexp(args.regexp):
+        resolve.AddTimelineToRender(tl, renderPreset, args.dest)
+else:
+    # set1 = set(args.timelines)
+    # set2 = set(resolve.GetTimelineNamesAsList())
+    for tl in resolve.GetAllTimelines():
+        if (tl.GetName() in args.timelines):
+            resolve.AddTimelineToRender(tl, renderPreset, args.dest)
+
+
