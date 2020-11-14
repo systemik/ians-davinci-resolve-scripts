@@ -1,0 +1,469 @@
+{
+    "root": {
+        "_archive": {
+            "AGSM": {
+                "projects": {
+                    "1.0": "AGSM018 Tiny Tutorials 02",
+                    "2.0": "AGSM018 Tiny Tutorials 03",
+                    "3.0": "AGSM018 Tiny Tutorials 04",
+                    "4.0": "AGSM018 Tiny Tutorials 05",
+                    "5.0": "AGSM018 Tiny Tutorials 06"
+                }
+            },
+            "Amber": {
+                "projects": {
+                    "1.0": "AMB012 Charlie & Juliet Instagram cutdowns"
+                }
+            },
+            "BE Sydney": {
+                "BES029 WCOA": {
+                    "projects": {
+                        "1.0": "BES029 WCOA Case Study"
+                    }
+                },
+                "BES030 Microscopy Congress Case Study": {
+                    "projects": {
+                        "1.0": "BES030 Microscopy Congress Case Study",
+                        "2.0": "BES030 Microscopy Darling Harbour"
+                    }
+                },
+                "BES039 Asia Hype": {
+                    "projects": {
+                        "1.0": "BES039 Asia Videos"
+                    }
+                },
+                "projects": {
+                    "1.0": "Ambassadors 2018 revisit",
+                    "2.0": "BES018 Promote Sydney Incentive",
+                    "3.0": "BES024 Sydney Destination video",
+                    "4.0": "BES028 Updating branding on existing videos",
+                    "5.0": "BES031 Silent video",
+                    "6.0": "Dermatologists",
+                    "7.0": "Karen Stocks"
+                }
+            },
+            "BES034 Asia Roadshow": {
+                "projects": {
+                    "1.0": "BES034 Asia Roadshow 01",
+                    "2.0": "BES034 Asia Roadshow 02",
+                    "3.0": "BES034 Asia Roadshow 03",
+                    "4.0": "BES034 Asia Roadshow 04",
+                    "5.0": "BES034 Asia Roadshow 05",
+                    "6.0": "BES034 Asia Roadshow 06",
+                    "7.0": "BES034 Asia Roadshow 07",
+                    "8.0": "BES034 Asia Roadshow 08",
+                    "9.0": "BES034 Asia Roadshow 09",
+                    "10.0": "BES034 Asia Roadshow 10",
+                    "11.0": "BES034 Asia Roadshow 11",
+                    "12.0": "BES034 Asia Roadshow 12",
+                    "13.0": "BES034 Asia Roadshow 13",
+                    "14.0": "BES034 Asia Roadshow 14",
+                    "15.0": "BES034 Asia Roadshow 15",
+                    "16.0": "BES034 Asia Roadshow 16",
+                    "17.0": "BES034 Asia Roadshow 17",
+                    "18.0": "BES034 Asia Roadshow 18",
+                    "19.0": "BES034 Asia Roadshow, trimmed for BES039 Incentive"
+                }
+            },
+            "BHL": {
+                "projects": {
+                    "1.0": "BHL Group 01",
+                    "2.0": "BHL Group 04"
+                }
+            },
+            "Born and Raised": {
+                "projects": {
+                    "1.0": "Car Next Door"
+                }
+            },
+            "Bubbler": {
+                "projects": {
+                    "1.0": "BUB003 Scratch programming round 1"
+                }
+            },
+            "Flight Centre": {
+                "old": {
+                    "projects": {
+                        "1.0": "_FCBT graded",
+                        "2.0": "FC001 FCBT videos 02",
+                        "3.0": "FC001 FCBT videos 03",
+                        "4.0": "FC001 FCBT videos, alt takes"
+                    }
+                },
+                "projects": {
+                    "1.0": "FC001 FCBT videos 05",
+                    "2.0": "FC001 FCBT videos 06",
+                    "3.0": "FC001 FCBT videos 06.20190326203834 (Copy)",
+                    "4.0": "FC001 FCBT videos 11"
+                }
+            },
+            "Frank Digital": {
+                "projects": {
+                    "1.0": "FRA011 3 x web video prep"
+                }
+            },
+            "Futurebrand": {
+                "projects": {
+                    "1.0": "FUT009 Healius mini-brand video"
+                }
+            },
+            "Garden Agency": {
+                "Ambassadors": {
+                    "arc": {
+                        "projects": {
+                            "1.0": "BE Sydney Ambassadors 02",
+                            "2.0": "BES017 Ambassadors 03",
+                            "3.0": "BES017 Ambassadors 2018"
+                        }
+                    },
+                    "projects": {
+                        "1.0": "BES017 Ambassadors 2018-10-26 01",
+                        "2.0": "BES017 Ambassadors 2018-10-26 02",
+                        "3.0": "BES017 Ambassadors imported"
+                    }
+                },
+                "LX Group": {
+                    "projects": {
+                        "1.0": "Copy of TGA001 LX Group ambient video day 02",
+                        "2.0": "LX Group selects 01",
+                        "3.0": "LX Group selects 02",
+                        "4.0": "LX Group selects 03",
+                        "5.0": "TGA001 LX Group ambient video"
+                    }
+                },
+                "projects": {
+                    "1.0": "AGSM018 Mini Makers tutorials"
+                }
+            },
+            "Hank Mango": {
+                "projects": {
+                    "1.0": "little grading job"
+                }
+            },
+            "HANK004 Hailstorm": {
+                "projects": {
+                    "1.0": "HANK004 Hailstorm 01",
+                    "2.0": "HANK004 Hailstorm 02",
+                    "3.0": "HANK004 Hailstorm 03"
+                }
+            },
+            "HANK005 Townsville": {
+                "projects": {
+                    "1.0": "HANK005",
+                    "2.0": "HANK005 02",
+                    "3.0": "HANK005 03"
+                }
+            },
+            "HANK007 Westpac insurance merger": {
+                "projects": {
+                    "1.0": "HANK007 Westpac insurance merger 01",
+                    "2.0": "HANK007 Westpac insurance merger 02",
+                    "3.0": "HANK007 Westpac insurance merger 03",
+                    "4.0": "HANK007 Westpac insurance merger 04",
+                    "5.0": "HANK007 Westpac insurance merger 05",
+                    "6.0": "HANK007 Westpac insurance merger 06"
+                }
+            },
+            "lendlease": {
+                "projects": {
+                    "1.0": "LEN026 Murdoch University shoot"
+                }
+            },
+            "Nook": {
+                "projects": {
+                    "1.0": "Nook Open Gov"
+                }
+            },
+            "Old": {
+                "projects": {
+                    "1.0": "BES023 ISPRM 2022 re-edit",
+                    "2.0": "BESydney Ambassadors 2018",
+                    "3.0": "besydney dermatologists",
+                    "4.0": "co-partnership, dead ringer",
+                    "5.0": "Rosa"
+                }
+            },
+            "TSA": {
+                "projects": {
+                    "1.0": "TSA001 talking heads"
+                }
+            },
+            "projects": {
+                "1.0": "BES024 Sydney Destination video 08",
+                "2.0": "BES024 Sydney Destination video 09",
+                "3.0": "BES024 Sydney Destination video 10",
+                "4.0": "Copy of Jess Mauboy 01",
+                "5.0": "scratch"
+            }
+        },
+        "BeSydney": {
+            "projects": {
+                "1.0": "ARI001-ICOMOS-video-update"
+            }
+        },
+        "blackmagic-pocket-camera": {
+            "projects": {
+                "1.0": "pocket-camera"
+            }
+        },
+        "brandenburg": {
+            "ABO003_Paul Dyer PTC": {
+                "projects": {
+                    "1.0": "ABO003_Paul Dyer 01",
+                    "2.0": "ABO003_Paul Dyer 02",
+                    "3.0": "ABO003_Paul Dyer 04"
+                }
+            },
+            "projects": {
+                "1.0": "ABO001 Brandenburg message from Paul Dyer",
+                "2.0": "ABO001 Brandenburg message from Paul Dyer 02",
+                "3.0": "ABO001 Brandenburg message from Paul Dyer 03",
+                "4.0": "ABO001 Brandenburg message from Paul Dyer 04",
+                "5.0": "ABO001 PORTRAIT Brandenburg message from Paul Dyer 04",
+                "6.0": "testing brandenburg footage"
+            }
+        },
+        "C200 play": {
+            "projects": {
+                "1.0": "C200",
+                "2.0": "C200 25fps"
+            }
+        },
+        "CDC021 Jess Mauboy's living room": {
+            "CDC021 old versions": {
+                "projects": {
+                    "1.0": "CDC021 Jess Mauboy's living room 01",
+                    "2.0": "CDC021 Jess Mauboy's living room 02",
+                    "3.0": "CDC021 Jess Mauboy's living room 03",
+                    "4.0": "CDC021 Jess Mauboy's living room 04",
+                    "5.0": "CDC021 Jess Mauboy's living room 05",
+                    "6.0": "CDC021 Jess Mauboy's living room 06",
+                    "7.0": "CDC021 Jess Mauboy's living room 07",
+                    "8.0": "CDC021 Jess Mauboy's living room 08",
+                    "9.0": "CDC021 Jess Mauboy's living room 09",
+                    "10.0": "CDC021 Jess Mauboy's living room 10",
+                    "11.0": "CDC021 Jess Mauboy's living room 11",
+                    "12.0": "CDC021 Jess Mauboy's living room 12",
+                    "13.0": "CDC021 Jess Mauboy's living room 13",
+                    "14.0": "CDC021 Jess Mauboy's living room 14",
+                    "15.0": "CDC021 Jess Mauboy's living room 15",
+                    "16.0": "CDC021 Jess Mauboy's living room 16",
+                    "17.0": "CDC021 Jess Mauboy's living room 17"
+                }
+            },
+            "projects": {
+                "1.0": "CDC021 Jess Mauboy's living room 18",
+                "2.0": "CDC021 Jess Mauboy's living room 19",
+                "3.0": "CDC021 Jess Mauboy's living room 20",
+                "4.0": "CDC021 Jess Mauboy's living room 21",
+                "5.0": "CDC021 Jess Mauboy's living room 22",
+                "6.0": "CDC021 Jess Mauboy's living room 23"
+            }
+        },
+        "CDC026 Inside Tracks": {
+            "archive": {
+                "projects": {
+                    "1.0": "CDC026  Inside Tracks 01",
+                    "2.0": "CDC026 Spotify Inside Tracks 02",
+                    "3.0": "CDC026 Spotify Inside Tracks 03",
+                    "4.0": "CDC026 Spotify Inside Tracks 04",
+                    "5.0": "CDC026 Spotify Inside Tracks 05",
+                    "6.0": "CDC026 Spotify Inside Tracks 06",
+                    "7.0": "CDC026 Spotify Inside Tracks 07",
+                    "8.0": "CDC026 Spotify Inside Tracks 08",
+                    "9.0": "CDC026 Spotify Inside Tracks 09",
+                    "10.0": "CDC026 Spotify Inside Tracks 15",
+                    "11.0": "CDC026 Spotify Inside Tracks 16",
+                    "12.0": "CDC026 Spotify Inside Tracks 17",
+                    "13.0": "CDC026 Spotify Inside Tracks 18",
+                    "14.0": "CDC026 Spotify Inside Tracks 19",
+                    "15.0": "CDC026 Spotify Inside Tracks 20",
+                    "16.0": "CDC026 Spotify Inside Tracks 21",
+                    "17.0": "CDC026 Spotify Inside Tracks 22",
+                    "18.0": "CDC026 Spotify Inside Tracks 23",
+                    "19.0": "CDC026 Spotify Inside Tracks 24",
+                    "20.0": "CDC026 Spotify Inside Tracks 25",
+                    "21.0": "CDC026 Spotify Inside Tracks 26",
+                    "22.0": "CDC026 Spotify Inside Tracks 27",
+                    "23.0": "CDC026 Spotify Inside Tracks 28",
+                    "24.0": "CDC026 Spotify Inside Tracks 29",
+                    "25.0": "Spotify Inside Tracks"
+                }
+            },
+            "projects": {
+                "1.0": "CDC026 Spotify Inside Tracks 30",
+                "2.0": "CDC026 Spotify Inside Tracks 31",
+                "3.0": "CDC026 Spotify Inside Tracks 32",
+                "4.0": "CDC026 Spotify Inside Tracks 33"
+            }
+        },
+        "CHEE001-Jurlique-grade": {
+            "projects": {
+                "1.0": "CHEE001-Jurlique-01",
+                "2.0": "CHEE001-Jurlique-02",
+                "3.0": "CHEE001-Jurlique-03",
+                "4.0": "CHEE001-Jurlique-04",
+                "5.0": "CHEE001-Jurlique-05",
+                "6.0": "CHEE001-Jurlique-06",
+                "7.0": "CHEE001-Jurlique-07",
+                "8.0": "CHEE001-Jurlique-08"
+            }
+        },
+        "demo": {
+            "projects": {
+                "1.0": "resolve-scripts-demo-01",
+                "2.0": "resolve-scripts-demo-02",
+                "3.0": "resolve-scripts-demo-03",
+                "4.0": "resolve-scripts-demo-04"
+            }
+        },
+        "filmsupply": {
+            "projects": {
+                "1.0": "12345 - GoodFight",
+                "2.0": "dummy"
+            }
+        },
+        "jasper": {
+            "projects": {
+                "1.0": "jasper newtown 01",
+                "2.0": "jasper newtown 02"
+            }
+        },
+        "ketchup-website": {
+            "projects": {
+                "1.0": "ketchup-website-01"
+            }
+        },
+        "LX Group": {
+            "projects": {
+                "1.0": "LX Group selects 03",
+                "2.0": "TGA001 LX Group ambient video",
+                "3.0": "TGA001 LX Group ambient video 02"
+            }
+        },
+        "NEWCASTLE-KNIGHTS": {
+            "projects": {
+                "1.0": "NCK001-Newcastle-Knights"
+            }
+        },
+        "personal": {
+            "projects": {
+                "1.0": "john-eulogy"
+            }
+        },
+        "Queenwood": {
+            "queenwood archive": {
+                "projects": {
+                    "1.0": "Queenwood 08",
+                    "2.0": "Queenwood 09",
+                    "3.0": "Queenwood 10",
+                    "4.0": "Queenwood 11",
+                    "5.0": "Queenwood 12",
+                    "6.0": "Queenwood 13",
+                    "7.0": "Queenwood 14",
+                    "8.0": "Queenwood 15",
+                    "9.0": "Queenwood 16",
+                    "10.0": "Queenwood 17",
+                    "11.0": "Queenwood 18",
+                    "12.0": "Queenwood 19",
+                    "13.0": "Queenwood 20",
+                    "14.0": "Queenwood 21",
+                    "15.0": "Queenwood 22",
+                    "16.0": "Queenwood 23",
+                    "17.0": "Queenwood 24",
+                    "18.0": "Queenwood 25",
+                    "19.0": "Queenwood 26",
+                    "20.0": "Queenwood 27",
+                    "21.0": "Queenwood 28",
+                    "22.0": "Queenwood 29",
+                    "23.0": "Queenwood 30",
+                    "24.0": "Queenwood 31",
+                    "25.0": "Queenwood 32",
+                    "26.0": "Queenwood 33",
+                    "27.0": "Queenwood 34",
+                    "28.0": "Queenwood 35",
+                    "29.0": "Queenwood 36",
+                    "30.0": "Queenwood 37",
+                    "31.0": "Queenwood 38",
+                    "32.0": "Queenwood 39",
+                    "33.0": "Queenwood 40",
+                    "34.0": "Queenwood 41",
+                    "35.0": "Queenwood 42",
+                    "36.0": "Queenwood 43"
+                }
+            },
+            "projects": {
+                "1.0": "Queenwood 45",
+                "2.0": "Queenwood 46",
+                "3.0": "Queenwood 47",
+                "4.0": "Queenwood 48"
+            }
+        },
+        "SCHF": {
+            "projects": {
+                "1.0": "SCHF-caption-experiment"
+            }
+        },
+        "Spotify": {
+            "CDC019 Spotify Jess Mauboy premium": {
+                "projects": {
+                    "1.0": "Jess Mauboy 01",
+                    "2.0": "Jess Mauboy 02",
+                    "3.0": "Jess Mauboy 03",
+                    "4.0": "Jess Mauboy 04",
+                    "5.0": "Jess Mauboy 05",
+                    "6.0": "Jess Mauboy 06",
+                    "7.0": "Jess Mauboy 07",
+                    "8.0": "Jess Mauboy 08",
+                    "9.0": "Jess Mauboy 09",
+                    "10.0": "Jess Mauboy 10",
+                    "11.0": "Jess Mauboy 11",
+                    "12.0": "Jess Mauboy 12",
+                    "13.0": "Jess Mauboy 13",
+                    "14.0": "Jess Mauboy 14",
+                    "15.0": "Jess Mauboy 15",
+                    "16.0": "Jess Mauboy 16",
+                    "17.0": "Jess Mauboy 17"
+                }
+            },
+            "projects": {
+                "1.0": "CDC033-Merci-Mercy-01",
+                "2.0": "Merci Mercy",
+                "3.0": "Spotify Wrapper 2020",
+                "4.0": "Spotify-Wrapped-2020-02"
+            }
+        },
+        "SQC": {
+            "projects": {
+                "1.0": "C300 play",
+                "2.0": "SQC007-Bond-01",
+                "3.0": "SQC008-Martinis"
+            }
+        },
+        "Wenona": {
+            "projects": {
+                "1.0": "WNA001-Wenona-Athenaeum-06",
+                "2.0": "WNA001-Wenona-Athenaeum-01",
+                "3.0": "WNA001-Wenona-Athenaeum-02",
+                "4.0": "WNA001-Wenona-Athenaeum-03",
+                "5.0": "WNA001-Wenona-Athenaeum-04",
+                "6.0": "WNA001-Wenona-Athenaeum-05",
+                "7.0": "WNA004-Wenona-Dance-01",
+                "8.0": "WNA005-Wenona-Music-01",
+                "9.0": "WNA006-Orientation"
+            }
+        },
+        "Yonder-Goodman": {
+            "projects": {
+                "1.0": "GDM015"
+            }
+        },
+        "projects": {
+            "1.0": "ACG008 Coffee Club",
+            "2.0": "Poppy MMUN",
+            "3.0": "sadie VIII",
+            "4.0": "SCHF001 Greenlight project",
+            "5.0": "scratchpad"
+        }
+    }
+}

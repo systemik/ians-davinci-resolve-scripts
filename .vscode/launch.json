@@ -5,6 +5,14 @@
     "version": "0.2.0",
     "configurations": [
         {
+            "name": "browseProjects",
+            "type": "python",
+            "request": "launch",
+            "program": "${file}",
+            "args": ["projectmanager/new.json"],
+            "console": "integratedTerminal"
+        },
+        {
             "name": "Python: Current File",
             "type": "python",
             "request": "launch",
