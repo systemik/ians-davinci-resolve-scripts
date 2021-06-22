@@ -1,5 +1,6 @@
 {
     "python.linting.enabled": true,
     "python.pythonPath": "/Users/ian/.pyenv/versions/3.8.5/bin/python",
-    "python.linting.flake8Enabled": true
+    "python.linting.flake8Enabled": false,
+    "python.linting.banditEnabled": true
 }
