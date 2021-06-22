@@ -36,7 +36,8 @@ parser.add_argument(
 parser.add_argument(
     "-d", "--dest", help="Destination directory for the renders")
 
-parser.add_argument("-p", "--preset", help="Rendering preset to use")
+parser.add_argument(
+    "-p", "--preset", help="Rendering preset to use")
 
 parser.add_argument(
     '-r', '--regexp', help="Interpret as regular expression")
@@ -52,6 +53,8 @@ if not args.dest:
     # print(args.dest)
     # args.dest = os.getcwd()
 
+renderPreset = ""
+print(args)
 if args.preset:
     renderPreset = args.preset
 
@@ -66,6 +69,7 @@ else:
     # set2 = set(resolve.GetTimelineNamesAsList())
     for tl in resolve.GetAllTimelines():
         if (tl.GetName() in args.timelines):
+            print(renderPreset)
             resolve.AddTimelineToRender(tl, renderPreset, args.dest)
 
 
