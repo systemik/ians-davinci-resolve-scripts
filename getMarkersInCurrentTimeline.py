@@ -1,15 +1,18 @@
 #!/usr/bin/env python3
 
 """
-Ian 2020-05-07
+Ian 
+2020-05-07
+initial
+
+2021-08-30
+commented code! plus don't bake in the frame rate (naughty)
+
 ianhaigh.com
 """
 
 import ResolveLib.ianresolvelib as r
 from timecode import Timecode
-
-import json
-import sys
 import argparse
 
 parser = argparse.ArgumentParser(description="List all the markers in the active timeline.")
@@ -17,16 +20,32 @@ parser = argparse.ArgumentParser(description="List all the markers in the active
 
 args = parser.parse_args()
 
-# why do I have to add 1? Who knows?
-# timelineCount = int(r.project.GetTimelineCount() + 1)
-
 tl = r.project.GetCurrentTimeline()
+framerate = float(tl.GetSetting("timelineFrameRate"))
+
+# returns a dict with (frameId -> {information})
 markers = tl.GetMarkers()
 
+markerResult = []
 for f in markers.items():
-	tc = Timecode(30, frames=f[0])
-	print(tc)
-	print(f[1]["name"])
+	currentMarker = ""
+	# convert the framenumber to timecode, so it's easier to read
+	tc = Timecode(framerate, frames=f[0])
+	# currentMarker["tc"] = tc
+	# currentMarker["name"] = f[1]["name"]
+
+	currentMarker = str(tc) + "\n"
+	currentMarker = currentMarker + f[1]["name"]
+
+	markerResult.append(currentMarker)
+
+print("\n\n".join(markerResult))
+
+
+# this one is quite cool too
+# print("\n".join(map(str, markerResult)))
+
+# below here? um … just old stuff that I can't bring myself to throw out, I guess
 
 """
 print(json.dumps(markers))
