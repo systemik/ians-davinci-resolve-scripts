@@ -1,4 +1,4 @@
-#!/usr/bin/env python3 -Wignore
+#!/usr/bin/env python -Wignore
 
 """
 Ian 2020-10-20
@@ -27,6 +27,10 @@ parser = argparse.ArgumentParser(
 
 parser.add_argument(
     "-k", "--keep", help="Keep the queue instead of clearing it first",
+    action="store_true")
+
+parser.add_argument(
+    "-s", "--start", help="Start rendering immediately",
     action="store_true")
 
 # parser.add_argument(
@@ -73,3 +77,5 @@ else:
             resolve.AddTimelineToRender(tl, renderPreset, args.dest)
 
 
+if args.start:
+    resolve.project.StartRendering()
