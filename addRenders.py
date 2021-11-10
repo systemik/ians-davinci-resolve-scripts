@@ -1,4 +1,4 @@
-#!/usr/bin/env python3
+#!/usr/bin/env python -Wignore
 
 """
 Ian 2020-10-20
@@ -29,6 +29,10 @@ parser.add_argument(
     "-k", "--keep", help="Keep the queue instead of clearing it first",
     action="store_true")
 
+parser.add_argument(
+    "-s", "--start", help="Start rendering immediately",
+    action="store_true")
+
 # parser.add_argument(
 #     "-r", "--regexp", help="Interpret as regular expression"
 # )
@@ -36,7 +40,8 @@ parser.add_argument(
 parser.add_argument(
     "-d", "--dest", help="Destination directory for the renders")
 
-parser.add_argument("-p", "--preset", help="Rendering preset to use")
+parser.add_argument(
+    "-p", "--preset", help="Rendering preset to use")
 
 parser.add_argument(
     '-r', '--regexp', help="Interpret as regular expression")
@@ -52,6 +57,8 @@ if not args.dest:
     # print(args.dest)
     # args.dest = os.getcwd()
 
+renderPreset = ""
+print(args)
 if args.preset:
     renderPreset = args.preset
 
@@ -66,6 +73,9 @@ else:
     # set2 = set(resolve.GetTimelineNamesAsList())
     for tl in resolve.GetAllTimelines():
         if (tl.GetName() in args.timelines):
+            print(renderPreset)
             resolve.AddTimelineToRender(tl, renderPreset, args.dest)
 
 
+if args.start:
+    resolve.project.StartRendering()

@@ -30,7 +30,8 @@ def main():
         for f in obj.keys():
             if f == "projects":
                 for y in obj["projects"].values():
-                    print(y)
+                    # print("/".join(currentPath) + "/" + y)
+                    print("\t", y)
                 return
             else:
                 currentPath.append(f)

@@ -1,3 +1,4 @@
+from re import IGNORECASE
 from ResolveLib.python_get_resolve import GetResolve
 # import json
 # import sys
@@ -40,7 +41,7 @@ def GetTimelinesByRegexp(regexp):
         timelineName = timeline.GetName()
 
         # print(timelineName)
-        m = re.search(regexp, timelineName)
+        m = re.search(regexp, timelineName, IGNORECASE)
         if m:
             obj.append(timeline)
 
