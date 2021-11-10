@@ -11,12 +11,9 @@ for current in items:
 	name = current.GetName()
 	duration = current.GetDuration()
 
-	# print(f"{name}, {duration}")
+	print(f"{name}, {duration}")
 
-	mpi = current.GetMediaPoolItem()
-	if (mpi.GetClipProperty("Alpha mode") == "Straight"):
-		print(f""""{name}" is set to straight, let's fix that""")
-		mpi.SetClipProperty("Alpha mode", "Premultiplied")
+
 	
 
 
