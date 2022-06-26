@@ -1,4 +1,4 @@
-#!/usr/bin/env python3
+#!/usr/bin/env python3 -Wignore
 
 """
 Ian 2020-01-15
@@ -33,6 +33,10 @@ parser.add_argument(
     action="store_true")
 
 parser.add_argument(
+    "-s", "--start", help="Start rendering immediately",
+    action="store_true")
+
+parser.add_argument(
     "-d", "--dest", help="Destination directory for the renders")
 
 parser.add_argument("-p", "--preset", help="Rendering preset to use")
@@ -52,3 +56,6 @@ if not args.keep:
 
 for tl in resolve.GetTimelinesByRegexp(args.regexp):
     resolve.AddTimelineToRender(tl, renderPreset, args.dest)
+
+if args.start:
+    resolve.project.StartRendering()

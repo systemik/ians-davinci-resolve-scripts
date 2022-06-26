@@ -1,0 +1,349 @@
+{
+	"root": {
+		"_archive": {
+			"AGSM": {
+				"projects": {
+					"1": "AGSM018 Tiny Tutorials 06"
+				}
+			},
+			"Amber": {
+				"projects": {
+					"1": "AMB012 Charlie & Juliet Instagram cutdowns"
+				}
+			},
+			"BE Sydney": {
+				"BES029 WCOA": {
+					"projects": {
+						"1": "BES029 WCOA Case Study"
+					}
+				},
+				"BES030 Microscopy Congress Case Study": {
+					"projects": {
+						"1": "BES030 Microscopy Congress Case Study",
+						"2": "BES030 Microscopy Darling Harbour"
+					}
+				},
+				"BES034 Asia Roadshow": {
+					"projects": {
+						"1": "BES034 Asia Roadshow 18",
+						"2": "BES034 Asia Roadshow, trimmed for BES039 Incentive"
+					}
+				},
+				"BES039 Asia Hype": {
+					"projects": {
+						"1": "BES039 Asia Videos"
+					}
+				},
+				"projects": {
+					"1": "Ambassadors 2018 revisit",
+					"2": "BES018 Promote Sydney Incentive",
+					"3": "BES024 Sydney Destination video 10",
+					"4": "BES028 Updating branding on existing videos",
+					"5": "BES031 Silent video",
+					"6": "Dermatologists",
+					"7": "Karen Stocks"
+				}
+			},
+			"BeSydney": {
+				"projects": {
+					"1": "ARI001-ICOMOS-video-update"
+				}
+			},
+			"BHL": {
+				"projects": {
+					"1": "BHL Group 04"
+				}
+			},
+			"Born and Raised": {
+				"projects": {
+					"1": "Car Next Door"
+				}
+			},
+			"brandenburg": {
+				"projects": {}
+			},
+			"Bubbler": {
+				"projects": {
+					"1": "BUB003 Scratch programming round 1"
+				}
+			},
+			"CHEE001-Jurlique-grade": {
+				"projects": {
+					"1": "CHEE001-Jurlique-08"
+				}
+			},
+			"DANI001-Pilates": {
+				"projects": {
+					"1": "DANI001-Pilates-01",
+					"2": "DANI001-Pilates-02",
+					"3": "DANI001-Pilates-03"
+				}
+			},
+			"demo": {
+				"projects": {
+					"1": "resolve-scripts-demo-01",
+					"2": "resolve-scripts-demo-02",
+					"3": "resolve-scripts-demo-03",
+					"4": "resolve-scripts-demo-04"
+				}
+			},
+			"filmsupply": {
+				"projects": {
+					"1": "12345 - GoodFight",
+					"2": "dummy"
+				}
+			},
+			"Flight Centre": {
+				"projects": {
+					"1": "FC001 FCBT videos 11"
+				}
+			},
+			"Futurebrand": {
+				"projects": {
+					"1": "FUT009 Healius mini-brand video"
+				}
+			},
+			"Garden Agency": {
+				"LX Group": {
+					"projects": {
+						"1": "Copy of TGA001 LX Group ambient video day 02",
+						"2": "LX Group selects 01",
+						"3": "LX Group selects 02",
+						"4": "LX Group selects 03",
+						"5": "TGA001 LX Group ambient video"
+					}
+				},
+				"projects": {
+					"1": "AGSM018 Mini Makers tutorials"
+				}
+			},
+			"Hank Mango": {
+				"HANK004 Hailstorm": {
+					"projects": {
+						"1": "HANK004 Hailstorm 03"
+					}
+				},
+				"HANK005 Townsville": {
+					"projects": {
+						"1": "HANK005",
+						"2": "HANK005 02",
+						"3": "HANK005 03"
+					}
+				},
+				"HANK007 Westpac insurance merger": {
+					"projects": {
+						"1": "HANK007 Westpac insurance merger 06"
+					}
+				},
+				"projects": {}
+			},
+			"LX Group": {
+				"projects": {
+					"1": "LX Group selects 03",
+					"2": "TGA001 LX Group ambient video",
+					"3": "TGA001 LX Group ambient video 02"
+				}
+			},
+			"NEWCASTLE-KNIGHTS": {
+				"projects": {
+					"1": "NCK001-Newcastle-Knights"
+				}
+			},
+			"Nook": {
+				"projects": {
+					"1": "Nook Open Gov"
+				}
+			},
+			"TSA": {
+				"projects": {
+					"1": "TSA001 talking heads"
+				}
+			},
+			"Wenona": {
+				"projects": {
+					"1": "Hello World",
+					"2": "WNA001-grading-marie",
+					"3": "WNA001-Wenona-Athenaeum-09",
+					"4": "WNA001-Wenona-Athenaeum-10",
+					"5": "WNA001-Why-Wenona",
+					"6": "WNA004-Wenona-Dance-01",
+					"7": "WNA005-Wenona-Music-01",
+					"8": "WNA006-Orientation-02",
+					"9": "WNA006-Orientation-02.20201122191330 (Copy)",
+					"10": "WNA006-Orientation-03",
+					"11": "WNA006-Orientation-04"
+				}
+			},
+			"projects": {
+				"1": "ACG008 Coffee Club",
+				"2": "Copy of Jess Mauboy 01",
+				"3": "Poppy MMUN",
+				"4": "sadie VIII",
+				"5": "scratch",
+				"6": "scratchpad"
+			}
+		},
+		"adobe-max": {
+			"projects": {
+				"1": "adobe-max-01",
+				"2": "adobe-max-02"
+			}
+		},
+		"Brandenburg": {
+			"projects": {
+				"1": "ABO006 Davinci Wide Gamut",
+				"2": "ABO006 Paul PTC March",
+				"3": "ABO007 BTS photo shoot",
+				"4": "Paul non ACES",
+				"5": "zampatti"
+			}
+		},
+		"DK": {
+			"projects": {
+				"1": "DK screencast",
+				"2": "knight",
+				"3": "knight 02",
+				"4": "knight 03"
+			}
+		},
+		"ENIGMA": {
+			"projects": {
+				"1": "BMPCC",
+				"2": "ENI006 Spotify Front Left 01"
+			}
+		},
+		"JPD": {
+			"projects": {
+				"1": "JPD"
+			}
+		},
+		"ketchup": {
+			"projects": {
+				"1": "ks002 spacebar trick",
+				"2": "testing"
+			}
+		},
+		"Kincoppal": {
+			"projects": {
+				"1": "KRB002 Kindy"
+			}
+		},
+		"Moffitt.Moffitt": {
+			"projects": {
+				"1": "MM001 FPI opening vid",
+				"2": "MM001 FPI video animatics"
+			}
+		},
+		"personal": {
+			"projects": {
+				"1": "haigh-video-vault",
+				"2": "john-eulogy"
+			}
+		},
+		"Queenwood": {
+			"old": {
+				"projects": {
+					"1": "Queenwood 48",
+					"2": "Queenwood 49",
+					"3": "Queenwood 50",
+					"4": "Queenwood 51",
+					"5": "QWD005 Strategic Plan",
+					"6": "sync bin again",
+					"7": "sync bin play"
+				}
+			},
+			"projects": {
+				"1": "Queenwood 52",
+				"2": "QWD003 Just Read"
+			}
+		},
+		"rt health": {
+			"projects": {
+				"1": "RT004 Guess Who",
+				"2": "RT005 History video 01"
+			}
+		},
+		"SCHF": {
+			"projects": {
+				"1": "SCHF002 Legends 01",
+				"2": "SCHF002-Legends-02",
+				"3": "SCHF002-Legends-03",
+				"4": "SCHF002-Legends-04"
+			}
+		},
+		"scripting": {
+			"projects": {
+				"1": "addFlags"
+			}
+		},
+		"Spotify": {
+			"CDC019 Spotify Jess Mauboy premium": {
+				"projects": {
+					"1": "Jess Mauboy 17"
+				}
+			},
+			"CDC021 Jess Mauboy's living room": {
+				"projects": {
+					"1": "CDC021 Jess Mauboy's living room 23"
+				}
+			},
+			"CDC026 Inside Tracks": {
+				"projects": {
+					"1": "CDC026 Spotify Inside Tracks 33"
+				}
+			},
+			"CDC035-Thank-You-2020": {
+				"projects": {
+					"1": "CDC035-Spotify-Thank-You-2020-01"
+				}
+			},
+			"CDC036-Spotify-GOTO-campaign": {
+				"old-myf": {
+					"projects": {
+						"1": "CDC036-Spotify-GOTO-campaign-01",
+						"2": "CDC036-Spotify-GOTO-campaign-01.20210215164318 (Copy)"
+					}
+				},
+				"projects": {
+					"1": "CDC036 Myf R16 16",
+					"2": "CDC036 Myf R16 PROMO MATERIAL"
+				}
+			},
+			"projects": {
+				"1": "CDC033-Merci-Mercy-01",
+				"2": "CDC035-Thank-You-Listeners",
+				"3": "knight 03",
+				"4": "Spotify-Wrapped-2020-02"
+			}
+		},
+		"SQC": {
+			"Michelle presentation snip": {
+				"projects": {
+					"1": "MS presentation snipo"
+				}
+			},
+			"projects": {
+				"1": "C300 play",
+				"2": "newcastle-conference",
+				"3": "SQC007-Bond-01",
+				"4": "SQC007-Bond-02",
+				"5": "SQC008-Martinis",
+				"6": "SQC010-Simmons-Martinis-b-roll",
+				"7": "SQC019-simulation-paper",
+				"8": "tmp"
+			}
+		},
+		"Strukton": {
+			"projects": {
+				"1": "STK001 Strukton Power"
+			}
+		},
+		"projects": {
+			"1": "CDC036-GOTO-Campaign-01",
+			"2": "Chuck GUT INSTINCT",
+			"3": "IAN013 Davinci EEP",
+			"4": "TikTok",
+			"5": "zampatti"
+		}
+	}
+}

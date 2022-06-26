@@ -1,4 +1,4 @@
-#!/usr/bin/env python3
+#!/usr/bin/env python -Wignore
 
 """
 Ian 2019
