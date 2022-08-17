@@ -1,3 +1,5 @@
+BASED ON [Ian’s Resolve Scripts](https://bitbucket.org/haighy/ians-davinci-resolve-scripts/)
+
 # Ian’s Resolve Scripts.
 
 I started exploring the DaVinci Resolve API a little while back to see if there was an easy way to render a bunch of timelines at once … since I missed that from Premiere Pro. Turns out it IS possible, and a whole lot of other stuff besides.
