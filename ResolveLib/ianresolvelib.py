@@ -47,6 +47,23 @@ def GetTimelinesByRegexp(regexp):
 
     return(obj)
 
+def GetUsedTimelinesByRegexp(regexp):
+    """return array of used timelines matching a regexp"""
+    timelineCount = project.GetTimelineCount()
+    # compiled = re.compile(regexp)
+
+    obj = []
+    for index in range(0, int(timelineCount)):
+        updatedIndex = index + 1
+        timeline = project.GetTimelineByIndex(updatedIndex)
+        timelineName = timeline.GetName()
+
+        # print(timelineName)
+        m = re.search(regexp, timelineName, IGNORECASE)
+        if m:
+            obj.append(timeline)
+
+    return(obj)
 
 def GetTimelinesBySuffix(suffix):
     """return array of timelines with a certain suffix"""
